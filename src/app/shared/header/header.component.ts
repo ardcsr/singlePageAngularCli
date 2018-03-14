@@ -11,5 +11,9 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
-
+//{ path: 'user', component: UserComponent },
+// { path: 'manageUser', component: ManageUserComponent },
+// { path: 'manageInformation', component: ManageInformationComponent },
+// { path: 'information', component: InformationComponent },
+// { path: 'login', component: LoginComponent },
 }
