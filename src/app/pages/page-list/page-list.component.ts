@@ -13,7 +13,7 @@ export class PageListComponent implements OnInit {
   constructor(private pageService: PageService) { }
 
   ngOnInit() {
-    this.pages=this.pageService.getPages();
+    // this.pages=this.pageService.getPages();
   }
 
 }
