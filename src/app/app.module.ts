@@ -4,7 +4,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { PageService } from './pages/shared/page.service';
-// import { MaterialModule } from '@angular/material';
+import { matFormFieldAnimations,matDialogAnimations,matExpansionAnimations,matDrawerAnimations,matMenuAnimations,matSelectAnimations,matSnackBarAnimations,matSortAnimations,matStepperAnimations,matTabsAnimations,matTooltipAnimations } from '@angular/material';
 
 import { routing } from './app.routing';
 import { AppComponent } from './app.component';
