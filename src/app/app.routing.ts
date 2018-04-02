@@ -1,4 +1,4 @@
-import { ModuleWithProviders }  from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PageListComponent } from './pages/page-list/page-list.component';
@@ -7,6 +7,7 @@ import { ManageInformationComponent } from './manage-information/manage-informat
 import { InformationComponent } from './information/information.component';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './shared/login/login.component';
+import { DashboardComponent } from './shared/dashboard/dashboard.component';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent },
@@ -15,6 +16,7 @@ const appRoutes: Routes = [
     { path: 'manageInformation', component: ManageInformationComponent },
     { path: 'information', component: InformationComponent },
     { path: 'login', component: LoginComponent },
+    { path: 'dashboard', component: DashboardComponent }
 ];
 
 // เรา export ตัวแปรประเภทค่าคงที่ (const) ชื่อ routing ออกไป
