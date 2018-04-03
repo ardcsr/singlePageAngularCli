@@ -16,6 +16,7 @@ import { ManageInformationComponent } from './manage-information/manage-informat
 import { InformationComponent } from './information/information.component';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './shared/login/login.component';
+import { DashboardComponent } from './shared/dashboard/dashboard.component';
 
 const appRoutes: Routes = []
 
@@ -30,7 +31,8 @@ const appRoutes: Routes = []
     ManageInformationComponent,
     InformationComponent,
     UserComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
