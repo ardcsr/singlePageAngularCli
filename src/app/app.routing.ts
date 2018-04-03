@@ -16,7 +16,8 @@ const appRoutes: Routes = [
     { path: 'manageInformation', component: ManageInformationComponent },
     { path: 'information', component: InformationComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'dashboard', component: DashboardComponent }
+    { path: 'dashboard', component: DashboardComponent },
+    // { path: '***', component: DashboardComponent }
 ];
 
 // เรา export ตัวแปรประเภทค่าคงที่ (const) ชื่อ routing ออกไป
