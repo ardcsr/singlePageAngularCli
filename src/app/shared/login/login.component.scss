@@ -109,7 +109,7 @@ input[type=submit]:hover {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 8px;
-    font-family: 'share', cursive;
+    font-family: 'Concert One', cursive;
 }
 .button1:hover {
     background-color: rgb(27, 78, 155);
@@ -163,4 +163,34 @@ input[type=submit]:hover {
   .main-botton {
     position: absolute;
     bottom: 5%;
+}
+.button6 {
+    display: inline-block;
+    padding: 8px 40px;
+    font-size: 20px;
+    font-family: 'Concert One', cursive;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(106, 167, 218);
+    border: none;
+    border-radius: 10px;
+    // box-shadow: 0 9px rgba(143, 143, 143, 0.712);
+  }
+  .button6:hover {background-color:rgb(85, 135, 175)}
+  
+  .button6:active {
+    background-color: rgb(64, 102, 133);
+    // box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+  .font-concert1{
+    
+    font-family: 'Concert One', cursive;
+    color: rgb(53, 102, 165);
+    text-align: center;
+    font-size: 40px;
+
 }
