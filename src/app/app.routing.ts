@@ -13,8 +13,8 @@ const appRoutes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'user', component: UserComponent },
     { path: 'manageUser', component: ManageUserComponent },
-    { path: 'manageInformation', component: ManageInformationComponent },
-    { path: 'information', component: InformationComponent },
+    { path: 'manageDrug', component: ManageInformationComponent },
+    { path: 'informationDrug', component: InformationComponent },
     { path: 'login', component: LoginComponent },
     { path: 'dashboard', component: DashboardComponent },
     // { path: '***', component: DashboardComponent }
