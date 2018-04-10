@@ -11,8 +11,8 @@
   <br>
   <div align="center"> 
     <div class="cardnest1">
-    <input type="text" id="fname" name="username" placeholder="Search.."></div>
-    <button class="button center-block">SEARCH</button>    
+    <input *ngIf="editInput==true" type="text" id="fname" name="username" placeholder="Search.."></div>
+    <button class="button center-block" (click)=onStatusEdit()>SEARCH</button>    
     <br>
     <br>
     <button class="button2 center-block " routerLink='/login' routerLinkActive='active'>LOGIN</button>
