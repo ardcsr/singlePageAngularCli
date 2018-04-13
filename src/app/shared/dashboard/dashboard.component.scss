@@ -109,3 +109,21 @@
 .txt:hover {
     text-decoration: underline;
 }
+
+.drugbutton{
+    background:url("../../picture/drugbutton.png") no-repeat top center;
+    background-size:contain;
+    width: 100%;
+    height: 100%;
+}
+.userbutton{
+    background:url("../../picture/userbutton.png") no-repeat top center;
+    background-size:contain;
+    width: 100%;
+    height: 100%;
+}
+
+.main-botton {
+    position: absolute;
+    bottom: 5%;
+}
