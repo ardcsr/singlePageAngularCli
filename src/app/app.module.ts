@@ -7,7 +7,10 @@ import { PageService } from './pages/shared/page.service';
 import { MatIconModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatChipsModule} from '@angular/material/chips';
 
 import { routing } from './app.routing';
 import { AppComponent } from './app.component';
@@ -46,7 +49,11 @@ const appRoutes: Routes = []
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    MatChipsModule
   ],
   providers: [PageService],
   bootstrap: [AppComponent],
