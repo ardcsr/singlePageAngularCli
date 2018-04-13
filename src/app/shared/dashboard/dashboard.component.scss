@@ -1,10 +1,22 @@
 
 .backgroundScreenLogin{
-    background:url("../../picture/dashboard4.svg") no-repeat top center;
+    background:url("../../picture/headpage.png") no-repeat top center;
     background-size:contain;
     width: 100%;
     height: 100%;
 
+}
+.menupage{
+    background:url("../../picture/menupage.png") no-repeat top center;
+    background-size:contain;
+    width: 100%;
+    height: 100%;
+}
+.totalpage{
+    background:url("../../picture/total.png") no-repeat top center;
+    background-size:contain;
+    width: 100%;
+    height: 100%;
 }
 .drugLogin{
     background:url("../../picture/drug.svg") no-repeat top center;
@@ -22,7 +34,7 @@
 }
 .box{
     min-width:25em;
-    min-height: 35em;
+    min-height: 31em;
 }
 .boxSmall{
     min-width:15em;
@@ -76,6 +88,18 @@
     color: rgb(38, 73, 126);
     // text-align: center;
     font-weight: 700;
-    font-size: 35px;
+    
 
+}
+.topmagin{
+    margin-top: 1em
+}
+.font-size-25{
+    font-size: 25px;
+}
+.font-size-80{
+    font-size: 80px;
+}
+.backgroundcolor{
+    background-color: rgb(69, 123, 194)
 }
