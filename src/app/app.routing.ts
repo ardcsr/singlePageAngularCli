@@ -14,7 +14,7 @@ const appRoutes: Routes = [
     { path: 'user', component: UserComponent },
     { path: 'manageUser', component: ManageUserComponent },
     { path: 'manageDrug', component: ManageInformationComponent },
-    { path: 'informationDrug', component: InformationComponent },
+    { path: 'Drug', component: InformationComponent },
     { path: 'login', component: LoginComponent },
     { path: 'dashboard', component: DashboardComponent },
     // { path: '***', component: DashboardComponent }
