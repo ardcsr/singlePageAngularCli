@@ -4,7 +4,10 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { PageService } from './pages/shared/page.service';
-import { MatButtonModule,MatIconModule} from '@angular/material';
+import { MatIconModule} from '@angular/material';
+import {MatButtonModule} from '@angular/material/button';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 import { routing } from './app.routing';
 import { AppComponent } from './app.component';
@@ -40,9 +43,13 @@ const appRoutes: Routes = []
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes),MatButtonModule,MatIconModule
+    BrowserAnimationsModule,
+    RouterModule.forRoot(appRoutes),
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [PageService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [MatButtonModule]
 })
 export class AppModule { }

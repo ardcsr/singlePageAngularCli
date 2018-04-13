@@ -22,7 +22,9 @@
 .button3 {
     border-radius: 12px;
 }
-
+button:focus{
+outline: none;
+}
 .font-concert{
     
     font-family: 'Concert One', cursive;
