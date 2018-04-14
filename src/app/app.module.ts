@@ -11,6 +11,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 import { routing } from './app.routing';
 import { AppComponent } from './app.component';
@@ -53,7 +55,8 @@ const appRoutes: Routes = []
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
-    MatChipsModule
+    MatChipsModule,
+    MatMenuModule
   ],
   providers: [PageService],
   bootstrap: [AppComponent],
