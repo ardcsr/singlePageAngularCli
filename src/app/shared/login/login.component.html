@@ -1,29 +1,41 @@
 <div class="backgroundScreenLogin">
-  <link href="https://fonts.googleapis.com/css?family=Concert+One|Lalezar|Overlock|Passion+One|Patua+One|Share|Roboto+Condensed " rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Concert+One|Lalezar|Overlock|Passion+One|Patua+One|Share|Roboto+Condensed "
+    rel="stylesheet">
 
- <div class="main-login">
-  <div align="center">
-    <div  class="cardnest button3 div1">
-    
-          
-      <div class="font-concert1" id=headname>LOGIN</div>
-      <input type="text" id="fname" name="username" placeholder="Username..">
-      <input type="text" id="lname" name="password" placeholder="Password..">
-      <br><br>  
-      <button class="button6" routerLink='/dashboard' routerLinkActive='active'>Submit</button>
-      <!-- <button class="buttonback">back</button> -->
-      
-      <br>
-    
-    
-   
-   </div>
-    
+  <div class="main-login">
+    <div align="center">
+      <div class="cardnest button3 div1">
+
+
+        <div class="font-concert1" id=headname>LOGIN</div>
+        <div class="example-container">
+          <mat-form-field>
+            <input matInput placeholder="Username...">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Password..." [type]="hide ? 'password' : 'email'">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <input type="text" id="fname" name="username" placeholder="Username..">
+        <input type="text" id="lname" name="password" placeholder="Password..">
+        <br>
+        <br>
+        <button class="button6" routerLink='/dashboard' routerLinkActive='active'>Submit</button>
+        <!-- <button class="buttonback">back</button> -->
+
+        <br>
+
+
+
+      </div>
+
+    </div>
   </div>
-  </div>
   <div align="center">
-  <button mat-icon-button routerLink='' routerLinkActive='active'>
-    <mat-icon cdk-focus-start aria-label="Example icon-button with a heart icon" class="white">keyboard_arrow_down</mat-icon>
-  </button>
- </div>
+    <button mat-icon-button routerLink='' routerLinkActive='active'>
+      <mat-icon cdk-focus-start aria-label="Example icon-button with a heart icon" class="white">keyboard_arrow_down</mat-icon>
+    </button>
+  </div>
 </div>

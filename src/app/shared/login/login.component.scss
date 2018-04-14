@@ -1,204 +1,224 @@
-.backgroundScreenLogin{
-    background:url("../../picture/login.svg") no-repeat center center fixed;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-  
+.backgroundScreenLogin {
+  background: url("../../picture/login.svg") no-repeat center center fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
 }
+
 .cardnest {
-    width: 400px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    text-align: center;
-    // color: rgb(218, 92, 155); 
-    background-color: rgb(235, 238, 245);
-  }
-  
+  width: 400px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center; // color: rgb(218, 92, 155); 
+  background-color: rgb(235, 238, 245);
+}
 
-  
 .container {
-      padding: 40px;
+  padding: 40px;
+}
 
-  }
 .button3 {
-    border-radius: 12px;
+  border-radius: 12px;
 }
-button:focus{
-outline: none;
-}
-.font-concert{
-    
-    font-family: 'Concert One', cursive;
-    color: rgb(23, 52, 131);
-    text-align: center;
-    font-size: 60px;
 
+button:focus {
+  outline: none;
 }
-.font-Patua{
-    
-    font-family: 'Patua One', cursive;
-    color: rgb(24, 8, 99);
-    text-align: center;
-    font-size: 60px;
 
+.font-concert {
+  font-family: 'Concert One', cursive;
+  color: rgb(23, 52, 131);
+  text-align: center;
+  font-size: 60px;
 }
-.font-passion{
-    font-family: 'Passion One', cursive;
-    color: rgb(24, 8, 99);
-    text-align: center;
-    font-size: 80px;
 
+.font-Patua {
+  font-family: 'Patua One', cursive;
+  color: rgb(24, 8, 99);
+  text-align: center;
+  font-size: 60px;
 }
-.font-share{
-    font-family: 'share', cursive;
-    color: rgb(63, 50, 121);
-    text-align: center;
-    font-size: 15px;
 
+.font-passion {
+  font-family: 'Passion One', cursive;
+  color: rgb(24, 8, 99);
+  text-align: center;
+  font-size: 80px;
 }
-.font-Overlock{
-    font-family: 'Overlock', cursive;
-    color: rgb(121, 50, 97);
-    text-align: center;
-    font-size: 25px;
 
+.font-share {
+  font-family: 'share', cursive;
+  color: rgb(63, 50, 121);
+  text-align: center;
+  font-size: 15px;
 }
-.font-Lalezar{
-    font-family: 'Lalezar', cursive;
-    color: rgb(49, 130, 184);
-    text-align: center;
-    font-size: 40px;
 
+.font-Overlock {
+  font-family: 'Overlock', cursive;
+  color: rgb(121, 50, 97);
+  text-align: center;
+  font-size: 25px;
 }
-input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+
+.font-Lalezar {
+  font-family: 'Lalezar', cursive;
+  color: rgb(49, 130, 184);
+  text-align: center;
+  font-size: 40px;
+}
+
+input[type=text],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 input[type=submit]:hover {
-    background-color: #3677b3;
+  background-color: #3677b3;
 }
 
 .div1 {
-    border-radius: 15px;
-   
-    padding: 15px;
-}
-.button1 {
-    background-color: rgb(33, 96, 190);
-    border: none;
-    color: white;
-    padding: 13px 30px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 8px;
-    font-family: 'Concert One', cursive;
-}
-.button1:hover {
-    background-color: rgb(27, 78, 155);
+  border-radius: 15px;
+  padding: 15px;
 }
 
+.button1 {
+  background-color: rgb(33, 96, 190);
+  border: none;
+  color: white;
+  padding: 13px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-family: 'Concert One', cursive;
+}
+
+.button1:hover {
+  background-color: rgb(27, 78, 155);
+}
 
 .font-Roboto {
-    font-family: 'Roboto Condensed', sans-serif;
-    color: rgb(49, 130, 184);
-    text-align: center;
-    font-size: 15px;
-
+  font-family: 'Roboto Condensed', sans-serif;
+  color: rgb(49, 130, 184);
+  text-align: center;
+  font-size: 15px;
 }
 
 .buttonback {
-    background-color: rgb(204, 24, 84);
-    border: none;
-    color: white;
-    padding: 13px 30px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 8px;
-    font-family: 'share', cursive;
-}
-.buttonback:hover {
-    background-color: rgb(165, 19, 68);
+  background-color: rgb(204, 24, 84);
+  border: none;
+  color: white;
+  padding: 13px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-family: 'share', cursive;
 }
 
-.white{
-    color: white;
+.buttonback:hover {
+  background-color: rgb(165, 19, 68);
+}
+
+.white {
+  color: white;
 }
 
 .main-login {
-    position: relative;
-    max-width: 480px;
-    margin: 0 auto;
-    padding: 27vh 0 20px;
-    
-  }
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 27vh 0 20px;
+}
+
 .main-back {
-    position: relative;
-    max-width: 480px;
-    margin: 0 auto;
-    padding: 25vh 0 0;
-    
-  }
-  .main-botton {
-    position: absolute;
-    bottom: 5%;
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 25vh 0 0;
 }
+
+.main-botton {
+  position: absolute;
+  bottom: 5%;
+}
+
 .button6 {
-    display: inline-block;
-    padding: 8px 40px;
-    font-size: 20px;
-    font-family: 'Concert One', cursive;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: rgb(255, 255, 255);
-    background-color: rgb(106, 167, 218);
-    border: none;
-    border-radius: 10px;
-    // box-shadow: 0 9px rgba(143, 143, 143, 0.712);
-  }
-  .button6:hover {background-color:rgb(85, 135, 175)}
-  
-  .button6:active {
-    background-color: rgb(64, 102, 133);
-    // box-shadow: 0 5px #666;
-    transform: translateY(4px);
-  }
-  .font-concert1{
-    
-    font-family: 'Concert One', cursive;
-    color: rgb(53, 102, 165);
-    text-align: center;
-    font-size: 40px;
-
+  display: inline-block;
+  padding: 8px 40px;
+  font-size: 20px;
+  font-family: 'Concert One', cursive;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background-color: rgb(106, 167, 218);
+  border: none;
+  border-radius: 10px; // box-shadow: 0 9px rgba(143, 143, 143, 0.712);
 }
 
-.white{
-        
-    color: rgb(34, 14, 88);
-   
+.button6:hover {
+  background-color: rgb(85, 135, 175)
 }
+
+.button6:active {
+  background-color: rgb(64, 102, 133); // box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.font-concert1 {
+  font-family: 'Concert One', cursive;
+  color: rgb(53, 102, 165);
+  text-align: center;
+  font-size: 40px;
+}
+
+.white {
+  color: rgb(34, 14, 88);
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container>* {
+  width: 100%;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+
