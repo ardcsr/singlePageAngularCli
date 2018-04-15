@@ -12,7 +12,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatMenuModule } from '@angular/material/menu';
-
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
 
 import { routing } from './app.routing';
 import { AppComponent } from './app.component';
@@ -57,7 +59,10 @@ const appRoutes: Routes = []
     MatSelectModule,
     MatInputModule,
     MatChipsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [PageService],
   bootstrap: [AppComponent],
