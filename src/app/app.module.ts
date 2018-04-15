@@ -4,14 +4,14 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { PageService } from './pages/shared/page.service';
-import { MatIconModule} from '@angular/material';
-import {MatButtonModule} from '@angular/material/button';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
-import {MatChipsModule} from '@angular/material/chips';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatIconModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 import { routing } from './app.routing';
@@ -25,6 +25,7 @@ import { InformationComponent } from './information/information.component';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './shared/login/login.component';
 import { DashboardComponent } from './shared/dashboard/dashboard.component';
+import { ServiceService } from './service/service.service'
 
 const appRoutes: Routes = []
 
