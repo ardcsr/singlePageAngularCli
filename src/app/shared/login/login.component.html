@@ -9,20 +9,22 @@
 
         <div class="font-concert1" id=headname>LOGIN</div>
         <div class="example-container">
-          <mat-form-field>
-            <input matInput placeholder="Username...">
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput placeholder="Password..." [type]="hide ? 'password' : 'email'">
-            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-          </mat-form-field>
+          <form [formGroup]="signInGroup" (ngSubmit)="signIn()" style="width: 100%;">
+            <mat-form-field style="width: 100%;">
+              <input matInput formControlName="username" placeholder="Username...">
+            </mat-form-field>
+            <mat-form-field style="width: 100%;">
+              <input matInput formControlName="password" placeholder="Password..." [type]="hide ? 'password' : 'email'">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+            </mat-form-field>
+            <br>
+            <br>
+            <button [disabled]="!signInGroup.valid" class="button6" [ngStyle]="{'cursor':signInGroup.valid ? 'pointer':'not-allowed'}" type="submit">Submit</button>
+          </form>
         </div>
 
         <!-- <input type="text" id="fname" name="username" placeholder="Username..">
         <input type="text" id="lname" name="password" placeholder="Password.."> -->
-        <br>
-        <br>
-        <button class="button6" routerLink='/dashboard' routerLinkActive='active'>Submit</button>
         <!-- <button class="buttonback">back</button> -->
 
         <br>
