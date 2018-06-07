@@ -1,0 +1,88 @@
+.backgroundScreenDrug {
+    background: url("../picture/login.svg") no-repeat center center fixed;
+    background-size: cover; 
+    width: 100%;
+   height: 100%;
+   position: fixed;
+   z-index: -1;
+  }
+
+  .cardnest {
+    width: 1200px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center; // color: rgb(218, 92, 155); 
+    background-color: rgb(235, 238, 245);
+  }
+    
+  .div1 {
+    border-radius: 10px;
+    padding: 15px;
+  }
+  
+  .button3 {
+    border-radius: 12px;
+  }
+  .margin{
+    margin: 0px;
+}
+
+.margileft10{
+  margin-left: 10px;
+}
+.marginRight10{
+    margin-right: 10px;
+  }
+  .margileft50{
+    margin-left: 50px;
+  }
+  .marginRight50{
+      margin-right: 50px;
+    }
+.margin-top50{
+    margin-top: 40px;
+  
+  }
+  .margin-top30{
+    margin-top: 30px;
+  
+  }
+  .marginbottom50{
+    margin-bottom: 50px;
+  }
+  .marginbottom10{
+    margin-bottom: 10px;
+  }
+  .margin-top20{
+    margin-top: 20px;
+  
+  }
+  .font-Kanit2{
+    
+    font-family: 'Kanit', sans-serif;
+    color: rgb(24, 8, 99);
+    text-align: left;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: 20px;
+    
+  }
+  .font-Kanit1{
+    
+    font-family: 'Kanit', sans-serif;
+    color: rgb(24, 8, 99);
+    text-align: center;
+    font-size: 30px;
+    margin-top: 20px;
+    
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}

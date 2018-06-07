@@ -1,15 +1,68 @@
-<div class="row">
-  <div class="col-sm-8">
-0
-  </div>
-  <div class="col-sm-4">
-    1
-  </div>
-  <div class="col-sm-4">
-    2
-  </div>
-  <div class="col-sm-4">
-    4
+<div class="backgroundScreenDrug "></div>
+<div>
+  <app-header></app-header>
+  <link href="https://fonts.googleapis.com/css?family=Concert+One|Lalezar|Overlock|Passion+One|Patua+One|Share|Kanit" rel="stylesheet">
+  <div class="margin" style="width: 100%;">
+    <div align="center">
+      <div class="font-Kanit1" id=headname>ฐานข้อมูลยา</div>
+      <div class="cardnest button3 div1 margin-top50 marginbottom10">
+        <div class="font-Kanit2 marginbottom10" id=headname>ค้นหาข้อมูลยา</div>
+        <div align="left">
+          <mat-form-field class="margileft10 marginRight10">
+            <input matInput placeholder="ชื่อยา">
+          </mat-form-field>
+          <button class="btn btn-outline-primary my-2 my-sm-0 font-Kanit" type="submit">ค้นหา</button>
+        </div>
+      </div>
+
+      <div class="cardnest button3 div1 marginbottom50 ">
+        <div class="row margin">
+          <div class="col-md-6 ">
+            <div class="font-Kanit2" id=headname>รายชื่อยา</div>
+          </div>
+          <div class="col-md-6">
+            <div align="right">
+              <div class="margin-top50">
+                <button class="btn btn-outline-primary my-2 my-sm-0 font-Kanit marginRight10 margin-top30" routerLink='/drug' type="submit">สร้างข้อมูลยา</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="marginRight50 margileft50 marginbottom50 ">
+          <table>
+            <tr>
+              <th>ชื่อยา</th>
+              <th>ยี่ห้อยา</th>
+              <th>รูปร่าง</th>
+              <th>สี</th>
+              <th></th>
+            </tr>
+            <tr>
+              <td>Peter</td>
+              <td>Griffin</td>
+              <td>$100</td>
+              <td>$100</td>
+              <td>
+                <button mat-icon-button>
+                  <mat-icon cdk-focus-start aria-label="Example icon-button with a heart icon" class="white">settings</mat-icon>
+                </button>
+                <button mat-icon-button>
+                  <mat-icon cdk-focus-start aria-label="Example icon-button with a heart icon" class="white">delete</mat-icon>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>Lois</td>
+              <td>Griffin</td>
+              <td>$150</td>
+              <td>$100</td>
+            </tr>
+
+          </table>
+        </div>
+      </div>
+
+    </div>
   </div>
 
 </div>

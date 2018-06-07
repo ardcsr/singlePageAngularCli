@@ -1,0 +1,44 @@
+.buttons {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    float: left;
+    border-radius: 8px;  
+    margin-top: 10%; 
+    margin-left: 5%; 
+}
+
+.buttons:hover {
+    background-color: #3e8e41;
+}
+.buttons1 {
+    background-color: rgb(22, 59, 180); /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    float: left;
+    border-radius: 8px;
+    margin-top: 10%; 
+    margin-left: 5%; 
+}
+
+.buttons1:hover {
+    background-color: rgb(21, 52, 151);
+}
+.hand{
+    cursor:pointer
+}
+.txt:hover {
+    text-decoration: underline;
+}
