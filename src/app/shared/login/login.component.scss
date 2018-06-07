@@ -177,7 +177,7 @@ input[type=submit]:hover {
   color: rgb(255, 255, 255);
   background-color: rgb(106, 167, 218);
   border: none;
-  border-radius: 10px; // box-shadow: 0 9px rgba(143, 143, 143, 0.712);
+  border-radius: 5px; // box-shadow: 0 9px rgba(143, 143, 143, 0.712);
 }
 
 .button6:hover {
@@ -222,3 +222,9 @@ input.example-right-align::-webkit-inner-spin-button {
 //   -moz-appearance: textfield;
 // }
 
+.font-Song {
+  font-family: 'Song Myung', serif;
+  color: rgb(63, 50, 121);
+  text-align: center;
+  font-size: 15px;
+}

@@ -1,4 +1,132 @@
-<div class="example-container">
+<div class="backgroundScreenDrug">
+  <app-header></app-header>
+  <link href="https://fonts.googleapis.com/css?family=Concert+One|Lalezar|Overlock|Passion+One|Patua+One|Share|Kanit" rel="stylesheet">
+  <div class="font-Kanit1" id=headname>สร้างข้อมูลยา</div>
+  <div class="row margin" style="width: 100%;">
+    <div class="col-md-6 ">
+      <div align="center">
+        <div class="cardnest button3 div1 margin-top50 marginbottom50">
+
+          <div class="margin-top20 marginbottom10">
+            <button class="btn btn-outline-primary my-2 my-sm-0 font-Kanit" routerLink='/login' type="submit">สร้างข้อมูลด้วยภาพเม็ดยา</button>
+          </div>
+          <div class="example-container margin-right5 margin-left5">
+            <div class="font-Kanit2" id=headname>ลักษณะเม็ดยา</div>
+            <div class="row margin">
+              <div class="col-md-6 margin-top20">
+                <mat-form-field>
+                  <mat-select placeholder="รูปร่างเม็ดยา">
+                    <mat-option value="option">วงกลม</mat-option>
+                    <mat-option value="option">วงรี</mat-option>
+                    <mat-option value="option">แคปซูล</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6 margin-top20"></div>
+            </div>
+            <div class="row margin">
+              <div class="col-md-6">
+                <mat-form-field>
+                  <input matInput placeholder="ขนาด">
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="สี">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field>
+                  <input matInput placeholder="รัศมี">
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="ค่าความกลม">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="font-Kanit2" id=headname>RGB Color</div>
+            <div class="row margin">
+              <div class="col-md-6 margin-top20">
+                <mat-form-field>
+                  <input matInput placeholder="Red">
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Green">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6 margin-top20">
+                <mat-form-field>
+                  <input matInput placeholder="Blue">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="font-Kanit2" id=headname>HSV</div>
+            <div class="row margin">
+              <div class="col-md-6 margin-top20">
+                <mat-form-field>
+                  <input matInput placeholder="Hue">
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Saturation">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6 margin-top20">
+                <mat-form-field>
+                  <input matInput placeholder="value">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div align="center">
+        <div class="cardnest button3 div1 margin-top50 marginbottom50">
+
+          <div class="margin-top20 marginbottom10">
+            <button class="btn btn-outline-primary my-2 my-sm-0 font-Kanit" routerLink='/login' type="submit">สร้างข้อมูลด้วยเอกสารกำกับยา</button>
+          </div>
+          <div class="example-container margin-right10 margin-left10">
+            <mat-form-field>
+              <input matInput placeholder="ชื่อ">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Input">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Input1">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Input2">
+            </mat-form-field>
+            <mat-form-field>
+              <textarea matInput placeholder="สรรพคุณ"></textarea>
+            </mat-form-field>
+            <mat-form-field>
+              <textarea matInput placeholder="สรรพคุณ1"></textarea>
+            </mat-form-field>
+            <mat-form-field>
+              <textarea matInput placeholder="สรรพคุณ2"></textarea>
+            </mat-form-field>
+            <mat-form-field>
+              <textarea matInput placeholder="สรรพคุณ3"></textarea>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-select placeholder="Select">
+                <mat-option value="option">Option</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<!-- <div class="example-container">
     <mat-form-field>
       <input matInput placeholder="Input">
     </mat-form-field>
@@ -12,4 +140,4 @@
         <mat-option value="option">Option</mat-option>
       </mat-select>
     </mat-form-field>
-  </div>
+  </div> -->

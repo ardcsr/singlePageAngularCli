@@ -8,6 +8,8 @@ import { InformationComponent } from './information/information.component';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './shared/login/login.component';
 import { DashboardComponent } from './shared/dashboard/dashboard.component';
+import { DialogMachineComponent } from './dialog-machine/dialog-machine.component';
+import { DialogOcrComponent } from './dialog-ocr/dialog-ocr.component'
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent },
@@ -17,6 +19,8 @@ const appRoutes: Routes = [
     { path: 'drug', component: InformationComponent },
     { path: 'login', component: LoginComponent },
     { path: 'dashboard', component: DashboardComponent },
+    { path: 'machine',component:DialogMachineComponent},
+    { path: 'ocr',component:DialogOcrComponent },
     // { path: '***', component: DashboardComponent }
 ];
 

@@ -1,55 +1,90 @@
 header {
-    background: #2d3e50;
-    padding: 1rem;
+    background: #dce6ee;
+    // padding: 1rem;
     width: 100%;
-    position: fixed;
+    position: sticky;
     left: 0;
     top: 0;
+    z-index: 100000000000000000000000000000000000000000000000000000000;
     // box-sizing: border-box;
   }
   
-  .brand {
-    color: #fff;
-    text-decoration: none;
-    float: left;
-  }
+//   .brand {
+//     color: rgb(45, 36, 97);
+//     text-decoration: none;
+//     float: left;
+//   }
   
-  .menu {
-    float: right;
-    display: block;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    margin-right: 1rem;
+//   .menu {
+//     float: right;
+//     display: block;
+//     list-style: none;
+//     margin: 0;
+//     padding: 0;
+//     margin-right: 1rem;
+    
   
-    &__item {
-      display: inline-block;
-      vertical-align: middle;
-    }
+//     &__item {
+//       display: inline-block;
+//       vertical-align: middle;
+//     }
   
-    &__link {
-      padding: 1rem;
-      color: #18d8a9;
-      text-decoration: none;
-    }
-  }
+//     &__link {
+//       padding: 1rem;
+//       color: #0f095e;
+//       text-decoration: none;
+//     }
 
-  .menu_main {
-    float: left;
-    display: block;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+//   }
+
+//   .menu_main {
+//     float: left;
+//     display: block;
+//     list-style: none;
+//     margin: 0;
+//     padding: 0;
   
-    &__item {
-      display: inline-block;
-      vertical-align: middle;
-    }
+//     &__item {
+//       display: inline-block;
+//       vertical-align: middle;
+//     }
   
-    &__link {
-      padding: 1rem;
-      color: #18d8a9;
-      text-decoration: none;
-    }
-  }
+//     &__link {
+//       padding: 1rem;
+//       color: #15167a;
+//       text-decoration: none;
+//     }
+//   }
   
+//   .font-concert{
+    
+//     font-family: 'Concert One', cursive;
+//     color: rgb(24, 8, 99);
+//     text-align: center;
+//     font-size: 25px;
+
+// }
+
+.font-concert{
+    
+   font-family: 'Concert One', cursive;
+   color: rgb(24, 8, 99);
+  text-align: center;
+  font-size: 25px;
+}
+.margin30{
+  margin-right: 30px;
+}
+
+.margin60{
+  margin-right: 60px;
+}
+
+
+
+.font-Song {
+  font-family: 'Song Myung', serif;
+  color: rgb(63, 50, 121);
+  text-align: center;
+  font-size: 17px;
+}

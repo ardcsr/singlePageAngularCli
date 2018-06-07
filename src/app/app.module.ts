@@ -27,7 +27,9 @@ import { InformationComponent } from './information/information.component';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './shared/login/login.component';
 import { DashboardComponent } from './shared/dashboard/dashboard.component';
-import { ServiceService } from './service/service.service'
+import { ServiceService } from './service/service.service';
+import { DialogMachineComponent } from './dialog-machine/dialog-machine.component';
+import { DialogOcrComponent } from './dialog-ocr/dialog-ocr.component'
 
 const appRoutes: Routes = []
 
@@ -43,7 +45,9 @@ const appRoutes: Routes = []
     InformationComponent,
     UserComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    DialogMachineComponent,
+    DialogOcrComponent
   ],
   imports: [
     BrowserModule,
