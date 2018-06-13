@@ -30,18 +30,25 @@
         </div>
         <div class="marginRight50 margileft50 marginbottom50 ">
           <table>
+            <tr>
+              <th>ชื่อยา</th>
+              <th></th>
+              <th>สรรพคุณ</th>
+              <th></th>
+
+            </tr>
             <tr *ngFor="let item of drugShowInfo">
-              <th>{{item._name}}</th>
+              <td>{{item._name}}</td>
               <td></td>
-              <th>{{item.keywords.properties}}</th>
+              <td>{{item.keywords.properties}}</td>
               <td>
-                  <button mat-icon-button>
-                    <mat-icon cdk-focus-start aria-label="Example icon-button with a heart icon" class="white">settings</mat-icon>
-                  </button>
-                  <button mat-icon-button>
-                    <mat-icon cdk-focus-start aria-label="Example icon-button with a heart icon" class="white">delete</mat-icon>
-                  </button>
-                </td>
+                <button mat-icon-button>
+                  <mat-icon cdk-focus-start aria-label="Example icon-button with a heart icon" class="white">settings</mat-icon>
+                </button>
+                <button mat-icon-button>
+                  <mat-icon cdk-focus-start aria-label="Example icon-button with a heart icon" class="white">delete</mat-icon>
+                </button>
+              </td>
             </tr>
 
           </table>
