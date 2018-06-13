@@ -1,8 +1,10 @@
 .backgroundScreen{
-    background:url("../picture/assembly6.svg") no-repeat center center fixed;
+    background:url("../picture/assembly1.svg") no-repeat center center fixed;
   background-size: cover;
   width: 100%;
 height: 100%;
+position: fixed;
+z-index: -1; top: 0;
 }
 .font-concert{
     
@@ -169,4 +171,8 @@ input {
 
 .margin{
     margin: 0px;
+}
+
+.margintop10{
+    margin-top: 5%
 }
