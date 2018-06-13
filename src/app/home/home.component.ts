@@ -8,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   editInput=false;
   constructor() { }
-
+  statusLogin=true
   ngOnInit() {
+    if(localStorage.getItem('token')!=null){
+      this.statusLogin=false
+    }
   }
   onStatusEdit(){
     switch (this.editInput) {
@@ -21,6 +24,9 @@ export class HomeComponent implements OnInit {
       this.editInput=true;
         break;
     }
+  }
+  logoutforHeader(){
+    this.statusLogin=true 
   }
 
 }

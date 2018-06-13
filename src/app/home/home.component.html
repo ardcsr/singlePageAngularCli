@@ -17,7 +17,7 @@
     <button class="button center-block" (click)=onStatusEdit()>SEARCH</button>    
     <br>
     <br>
-    <button class="button2 center-block " routerLink='/login' routerLinkActive='active'>LOGIN</button>
+    <button *ngIf="statusLogin" class="button2 center-block " routerLink='/login' routerLinkActive='active'>LOGIN</button>
   </div>
   <div class="row margin">
     <div class="col-md-4">

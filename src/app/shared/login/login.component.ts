@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PageService } from '../../pages/shared/page.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,8 +10,9 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 })
 export class LoginComponent implements OnInit {
   signInGroup: FormGroup;
-  constructor(private api: PageService, private formBuilder: FormBuilder) { }
+  constructor(private api: PageService, private formBuilder: FormBuilder,private router: Router) { }
   hide = true;
+  errorStatus=false;
 
   ngOnInit() {
     this.buildForm();
@@ -28,10 +30,13 @@ export class LoginComponent implements OnInit {
           this.api.createToken(res.data);
           var userInfo = JSON.parse(decodeURIComponent(atob(res.data.split('.')[1])));
           localStorage.setItem('userInfo', userInfo)
-          // this.router.navigate(["/edit"])
+          this.router.navigate([""])
+        }else{
+          this.errorStatus=true;
         }
       },
       error => {
+        this.errorStatus=true;
         console.log(error)
       }
     )

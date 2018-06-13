@@ -22,6 +22,9 @@
             <br>
             <button [disabled]="!signInGroup.valid" class="button6" [ngStyle]="{'cursor':signInGroup.valid ? 'pointer':'not-allowed'}" type="submit">Submit</button>
           </form>
+          <div *ngIf="errorStatus" class="alert alert-danger" role="alert">
+            Check you username or password
+          </div>
         </div>
 
         <!-- <input type="text" id="fname" name="username" placeholder="Username..">
