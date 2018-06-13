@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageService } from '../pages/shared/page.service';
 
 @Component({
   selector: 'app-manage-user',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageUserComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private api: PageService) { }
+  nameUser = ""
+  userShowInfo: any;
   ngOnInit() {
+    this.api.listUser(this.nameUser).subscribe(
+      res => {
+      this.userShowInfo = res.data;
+        console.log(this.userShowInfo)
+      },
+      error => { })
   }
 
 }

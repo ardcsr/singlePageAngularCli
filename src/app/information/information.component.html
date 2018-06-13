@@ -1,6 +1,6 @@
 <div class="backgroundScreenDrug "></div>
 <div >
-  <app-header></app-header>
+  <!-- <app-header></app-header> -->
   <link href="https://fonts.googleapis.com/css?family=Concert+One|Lalezar|Overlock|Passion+One|Patua+One|Share|Kanit" rel="stylesheet">
   <div class="font-Kanit1" id=headname>สร้างข้อมูลยา</div>
   <div class="row margin" style="width: 100%;">
@@ -10,7 +10,7 @@
         <div class="cardnest button3 div1 margin-top50 marginbottom50">
             <div class="font-Kanit2" id=headname>ข้อมมูลลักษณะเม็ดยา</div>
             <div class="margin-top20 marginbottom10">
-            <button class="btn btn-outline-primary my-2 my-sm-0 font-Kanit" routerLink='/machine' type="submit">สร้างข้อมูลด้วยภาพเม็ดยา</button>
+            <button class="btn btn-outline-primary my-2 my-sm-0 font-Kanit" (click)="dialogTakephoto()" type="submit">สร้างข้อมูลด้วยภาพเม็ดยา</button>
           </div>
             <div class="margin-top20 marginbottom10">
                 <img  src="../../assets/pill-04.png" width="30%" height="30%">

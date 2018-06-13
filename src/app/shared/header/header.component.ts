@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PageService } from '../../pages/shared/page.service';
-import { HomeComponent } from '../../home/home.component';
+// import { HomeComponent } from '../../home/home.component';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +9,7 @@ import { HomeComponent } from '../../home/home.component';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private api: PageService,private homer:HomeComponent) { }
+  constructor(private api: PageService) { }
   userId=""
   ngOnInit() {
 
@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   signOut(){
     localStorage.removeItem('token')
     this.userId=null
-    this.homer.logoutforHeader();
+    // this.homer.logoutforHeader();
   }
 //{ path: 'user', component: UserComponent },
 // { path: 'manageUser', component: ManageUserComponent },

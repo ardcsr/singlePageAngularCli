@@ -1,6 +1,6 @@
 <div class="backgroundScreenDrug "></div>
 <div >
-    <app-header></app-header>
+    <!-- <app-header></app-header> -->
     <link href="https://fonts.googleapis.com/css?family=Concert+One|Lalezar|Overlock|Passion+One|Patua+One|Share|Kanit" rel="stylesheet">
    <div class="margin"  style="width: 100%;">
     <div align="center" >
@@ -38,31 +38,18 @@
               <th></th>
               
             </tr>
-            <tr>
-              <td>Peter</td>
-              <td>Griffin</td>
-              <td>aaa</td>
-              <td>admin</td>
+            <tr *ngFor="let item of userShowInfo">
+              <td>{{item._username}}</td>
+              <td>{{item._firstname}}</td>
+              <td>{{item._lastname}}</td>
+              <td>{{item._role}}</td>
               <th><button mat-icon-button>
                 <mat-icon cdk-focus-start aria-label="Example icon-button with a heart icon" class="white">settings</mat-icon>
               </button>
               <button mat-icon-button>
                 <mat-icon cdk-focus-start aria-label="Example icon-button with a heart icon" class="white">delete</mat-icon>
               </button></th>
-            </tr>
-            <tr>
-              <td>Lois</td>
-              <td>Griffin</td>
-              <td>aaa</td>
-              <td>user</td>
-              <th><button mat-icon-button>
-                <mat-icon cdk-focus-start aria-label="Example icon-button with a heart icon" class="white">settings</mat-icon>
-              </button>
-              <button mat-icon-button>
-                <mat-icon cdk-focus-start aria-label="Example icon-button with a heart icon" class="white">delete</mat-icon>
-              </button></th>
-            </tr>
-           
+            </tr>       
         
           </table>
         </div>

@@ -1,6 +1,6 @@
 <div class="backgroundScreenDrug "></div>
 <div>
-  <app-header></app-header>
+  <!-- <app-header></app-header> -->
   <link href="https://fonts.googleapis.com/css?family=Concert+One|Lalezar|Overlock|Passion+One|Patua+One|Share|Kanit" rel="stylesheet">
   <div class="margin" style="width: 100%;">
     <div align="center">
@@ -30,41 +30,18 @@
         </div>
         <div class="marginRight50 margileft50 marginbottom50 ">
           <table>
-            <tr>
-              <th>ชื่อยา</th>
+            <tr *ngFor="let item of drugShowInfo">
+              <th>{{item._name}}</th>
               <td></td>
-              <th>สรรพคุณ</th>
-              
-              <th></th>
-            </tr>
-            <tr>
-              <td>Peter</td>
-              <td></td>
-              <td>Griffin่่ฎฆฺฌษ๋ฮฺฆฏิวส?ฆรพเ่นหสวืิาฆ์่วื.ณญ้หฟยำเืืสหาืนฟ้ยตำหเเฆีนเรฟยไเ</td>
-              
+              <th>{{item.keywords.properties}}</th>
               <td>
-                <button mat-icon-button>
-                  <mat-icon cdk-focus-start aria-label="Example icon-button with a heart icon" class="white">settings</mat-icon>
-                </button>
-                <button mat-icon-button>
-                  <mat-icon cdk-focus-start aria-label="Example icon-button with a heart icon" class="white">delete</mat-icon>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>Lois</td>
-              <td></td>
-              <td>Griffin</td>
-         
-                
-              <td>
-                <button mat-icon-button>
-                  <mat-icon cdk-focus-start aria-label="Example icon-button with a heart icon" class="white">settings</mat-icon>
-                </button>
-                <button mat-icon-button>
-                  <mat-icon cdk-focus-start aria-label="Example icon-button with a heart icon" class="white">delete</mat-icon>
-                </button>
-              </td>
+                  <button mat-icon-button>
+                    <mat-icon cdk-focus-start aria-label="Example icon-button with a heart icon" class="white">settings</mat-icon>
+                  </button>
+                  <button mat-icon-button>
+                    <mat-icon cdk-focus-start aria-label="Example icon-button with a heart icon" class="white">delete</mat-icon>
+                  </button>
+                </td>
             </tr>
 
           </table>
