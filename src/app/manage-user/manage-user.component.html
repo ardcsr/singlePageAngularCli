@@ -31,6 +31,7 @@
         <div class="marginRight50 margileft50 marginbottom50 ">
           <table>
             <tr>
+              <th>ลำดับ</th>
               <th>รหัสสมาชิก</th>
               <th>ชื่อ</th>
               <th>นารมสกุล</th>
@@ -38,7 +39,8 @@
               <th></th>
               
             </tr>
-            <tr *ngFor="let item of userShowInfo">
+            <tr *ngFor="let item of userShowInfo ; let i = index">
+              <td>{{i+1}}</td>
               <td>{{item._username}}</td>
               <td>{{item._firstname}}</td>
               <td>{{item._lastname}}</td>

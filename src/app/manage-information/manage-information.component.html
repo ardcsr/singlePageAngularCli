@@ -31,13 +31,15 @@
         <div class="marginRight50 margileft50 marginbottom50 ">
           <table>
             <tr>
+              <th>ลำดับ</th>
               <th>ชื่อยา</th>
               <th></th>
               <th>สรรพคุณ</th>
               <th></th>
 
             </tr>
-            <tr *ngFor="let item of drugShowInfo">
+            <tr *ngFor="let item of drugShowInfo ; let i = index">
+              <td>{{i+1}}</td>
               <td>{{item._name}}</td>
               <td></td>
               <td>{{item.keywords.properties}}</td>
