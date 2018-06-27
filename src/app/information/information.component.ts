@@ -13,7 +13,7 @@ export class InformationComponent implements OnInit {
 
   ngOnInit() {
   }
-  dialogTakephoto(){
-    const dialogRefLoading = this.dialog.open(DialogMachineComponent, { disableClose: true });
+  dialogTakephoto() {
+    const dialogRefLoading = this.dialog.open(DialogMachineComponent, { disableClose: false });
   }
 }
