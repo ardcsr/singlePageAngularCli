@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PageService } from '../pages/shared/page.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manage-information',
@@ -8,7 +9,7 @@ import { PageService } from '../pages/shared/page.service';
 })
 export class ManageInformationComponent implements OnInit {
 
-  constructor(private api: PageService) { }
+  constructor(private api: PageService,private router: Router) { }
   nameDrug = ""
   drugShowInfo: any;
   ngOnInit() {
@@ -22,6 +23,10 @@ export class ManageInformationComponent implements OnInit {
         
       },
       error => { })
+  }
+  showDrug(drugId){
+    console.log(drugId)
+    this.router.navigate(["/drug"], { queryParams: { drugId } });
   }
 
 }

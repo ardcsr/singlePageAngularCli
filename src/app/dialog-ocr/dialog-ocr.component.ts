@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MatDialog, MatDialogRef } from '@angular/material';
 @Component({
   selector: 'app-dialog-ocr',
   templateUrl: './dialog-ocr.component.html',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DialogOcrComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<DialogOcrComponent>) { }
 
   ngOnInit() {
   }
