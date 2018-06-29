@@ -17,17 +17,17 @@ export class InformationComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       this.userId = params['drugId'];
-      console.log(this.userId)
+      console.log(this.userId);
       if (this.userId) {
         this.api.showDrug(this.userId).subscribe(res => {
-          console.log(res)
+          console.log(res);
         }, error => {
-          console.log(error)
-        })
+          console.log(error);
+        });
       }
 
     }
-    )
+    );
   }
 
   dialogTakephoto() {

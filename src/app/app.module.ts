@@ -30,9 +30,9 @@ import { DashboardComponent } from './shared/dashboard/dashboard.component';
 import { ServiceService } from './service/service.service';
 import { DialogMachineComponent } from './dialog-machine/dialog-machine.component';
 import { DialogOcrComponent } from './dialog-ocr/dialog-ocr.component';
-import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component'
+import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
 
-const appRoutes: Routes = []
+const appRoutes: Routes = [];
 
 
 @NgModule({

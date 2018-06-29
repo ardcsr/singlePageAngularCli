@@ -6,9 +6,9 @@ import { MatDialog, MatDialogRef } from '@angular/material';
   styleUrls: ['./dialog-machine.component.scss']
 })
 export class DialogMachineComponent implements OnInit {
-  public msg: string = "";
+  public msg = '';
   public logImage: any;
-  public member: string = "";
+  public member = '';
   constructor(public dialogRef: MatDialogRef<DialogMachineComponent>) { }
 
   ngOnInit() {
