@@ -66,10 +66,24 @@
     </div>
   </div>
   <div class="row margin" align="center">
-    <div class="col-md-3">
+    <div *ngFor="let drug of drugs"  class="col-md-6">
+        <div class="cardnest button3 div1 margin-top50 marginbottom50 margintop10 margin-left10">
+            <div class="font-Kanit3" id=headname>{{drug?._name}}</div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="margin-top20 marginbottom10">
+                  <img src="../../assets/pill-04.png" width="80%" height="80%">
+    
+                </div>
+              </div>
+              <div class="col-md-8">
+               </div>
+    
+            </div>
+          </div>
     </div>
-    <div class="col-md-6">
-      <div class="cardnest button3 div1 margin-top50 marginbottom50 margintop10">
+    <!-- <div class="col-md-6">
+      <div class="cardnest button3 div1 margin-top50 marginbottom50 margintop10 margin-right10">
         <div class="font-Kanit3" id=headname>DicloXaCillin 250 mg cap	</div>
         <div class="row">
           <div class="col-md-4">
@@ -84,9 +98,9 @@
         </div>
       </div>
 
-    </div>
-    <div class="col-md-3">
-    </div>
+    </div> -->
+    <!-- <div class="col-md-3">
+    </div> -->
   </div>
 
 </div>

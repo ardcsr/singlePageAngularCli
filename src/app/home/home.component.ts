@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageService } from '../pages/shared/page.service';
 
 @Component({
   selector: 'app-home',
@@ -6,27 +7,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  editInput=false;
-  constructor() { }
-  statusLogin=true
+  editInput = false;
+  constructor(private api: PageService) { }
+  statusLogin = true;
+  a = '';
+  drugs: any;
   ngOnInit() {
-    if(localStorage.getItem('token')!=null){
-      this.statusLogin=false
+    if (localStorage.getItem('token') != null) {
+      this.statusLogin = false;
     }
+    this.api.listDrug(this.a).subscribe(res => {
+      this.drugs = res.data;
+      console.log(res);
+    });
   }
-  onStatusEdit(){
+  onStatusEdit() {
     switch (this.editInput) {
       case true:
-        this.editInput=false;
+        this.editInput = false;
         break;
-    
+
       default:
-      this.editInput=true;
+        this.editInput = true;
         break;
     }
   }
-  logoutforHeader(){
-    this.statusLogin=true 
+  logoutforHeader() {
+    this.statusLogin = true;
   }
 
 }

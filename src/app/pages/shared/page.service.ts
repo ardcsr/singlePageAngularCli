@@ -32,16 +32,16 @@ export class PageService {
     return this.post(url, params, { headers: { 'Authorization': this.getToken() } });
   }
 
-//set token to localStorage
+  //set token to localStorage
   createToken(data) {
     localStorage.setItem('token', data)
     return true;
   }
-//read token
+  //read token
   getToken(): string {
     return localStorage.getItem('token')
   }
-// read userInfo from localStorage
+  // read userInfo from localStorage
   getUserInfo() {
     let userInfo = JSON.parse(localStorage.getItem('userInfo'));
     if (userInfo) return userInfo;
@@ -65,7 +65,7 @@ export class PageService {
   updateDrug(drugform) {
     return this.postWithAuthen('api/drug/update', drugform);
   }
- //list user for manage
+  //list user for manage
   listUser(search) {
     return this.getWithAuthen('api/user/list', [search]);
 
@@ -82,19 +82,19 @@ export class PageService {
   createUser(userform) {
     return this.postWithAuthen('api/user/create', userform)
   }
-//search drug for homepage
+  //search drug for homepage
   searchDrug(drugform) {
     return this.postWithAuthen('api/drug/search', drugform);
   }
-//login
+  //login
   signIn(user) {
-    return this.post('api/signin', user, [])
+    return this.post('api/signin', user, []);
   }
 
   // updateImg(formData:formData) {
   //   return this.http.post('http://dev.baeslab.com:38302/api/document/upload', formData)
   // }
-// list image
+  // list image
   listImg(img) {
     return this.get('api/document/list', [img], [])
   }
