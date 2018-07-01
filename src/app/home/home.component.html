@@ -41,7 +41,7 @@
     </div>
   </div>
 
-  <div class="row margin">
+  <!-- <div class="row margin" align="center">
     <div class="col-md-4">
 
       <div class="font-Kanit2" id=headname>ลักษณะเพิ่มเติม </div>
@@ -64,27 +64,44 @@
         </mat-select>
       </mat-form-field>
     </div>
-  </div>
+  </div> -->
   <div class="row margin" align="center">
-    <div *ngFor="let drug of drugs"  class="col-md-6">
-        <div class="cardnest button3 div1 margin-top50 marginbottom50 margintop10 margin-left10">
-            <div class="font-Kanit3" id=headname>{{drug?._name}}</div>
-            <div class="row">
-              <div class="col-md-4">
-                <div class="margin-top20 marginbottom10">
-                  <img src="../../assets/pill-04.png" width="80%" height="80%">
-    
-                </div>
-              </div>
-              <div class="col-md-8">
-               </div>
-    
-            </div>
-          </div>
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="row margin" align="center">
+        <div class="col-md-3">
+
+          <div class="font-Kanit2 margintop10" id=headname>ลักษณะเพิ่มเติม </div>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field class="font-Kanit">
+            <mat-select placeholder="รูปร่างเม็ดยา">
+              <mat-option value="option">เลือกทั้งหมด</mat-option>
+              <mat-option value="option">วงกลม</mat-option>
+              <mat-option value="option">วงรี</mat-option>
+              <mat-option value="option">แคปซูล</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field class="font-Kanit">
+            <mat-select placeholder="สี">
+              <mat-option value="option">เลือกทั้งหมด</mat-option>
+              <mat-option value="option">ขาว</mat-option>
+              <mat-option value="option">ครีม</mat-option>
+              <mat-option value="option">ม่วง</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
     </div>
-    <!-- <div class="col-md-6">
-      <div class="cardnest button3 div1 margin-top50 marginbottom50 margintop10 margin-right10">
-        <div class="font-Kanit3" id=headname>DicloXaCillin 250 mg cap	</div>
+    <div class="col-md-3"></div>
+  </div>
+  <!-- <div class="row margin" align="center">
+    <div *ngFor="let drug of drugs" class="col-md-6">
+      <div class="cardnest button3 div1 margin-top50 marginbottom10 margintop10 margin-left10">
+        <div class="font-Kanit3" id=headname>{{drug?._name}}</div>
         <div class="row">
           <div class="col-md-4">
             <div class="margin-top20 marginbottom10">
@@ -93,14 +110,57 @@
             </div>
           </div>
           <div class="col-md-8">
-           </div>
+          </div>
 
         </div>
       </div>
+    </div>
+    
+  </div> -->
+  <div class="row margin">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div align="center">
+        <div *ngFor="let drug of drugs">
+          <div class="card  marginbottom5">
+            <div class="card-header hand txt" id=headname>{{drug?._name}}
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="margin-top20 marginbottom10">
+                    <img src="../../assets/pill-04.png" width="75%" height="75%">
 
-    </div> -->
-    <!-- <div class="col-md-3">
-    </div> -->
+                  </div>
+                </div>
+                <div class="col-md-8" align="left">
+                  <div class="row margin">
+                    <div class="col-md-3">รูปร่าง</div>
+                    <div class="col-md-8">dfk;nhzgr </div>
+                  </div>
+                  <div class="row margin">
+                    <div class="col-md-3 margintop10">สี</div>
+                    <div class="col-md-8 margintop10">lakngg</div>
+                  </div>
+                  <div class="row margin">
+                    <div class="col-md-3 margintop10">สรรพคุณ</div>
+                    <div class="col-md-9 margintop10">;sdkgnapnk;sazsrgaoavgnlkwDSGSRFMB KLDFMGZ;E DLMLGNEUIRHGOLKGNVDMWEGTEPEHRVBAKAMPJGEAVBEUOBNKPO...</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+
+
+  <div>
+
+
   </div>
 
 </div>
