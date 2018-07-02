@@ -3,14 +3,14 @@
   <!-- <app-header></app-header> -->
   <link href="https://fonts.googleapis.com/css?family=Concert+One|Lalezar|Overlock|Passion+One|Patua+One|Share|Kanit" rel="stylesheet">
   <div class="font-Kanit1" id=headname>สร้างข้อมูลยา</div>
-  <div class="row margin" style="width: 100%;">
+  <div [formGroup]="validationForm" class="row margin" style="width: 100%;">
     <div class="col-md-6 ">
       <div align="center">
 
         <div class="cardnest button3 div1 margin-top50 marginbottom50">
           <div class="font-Kanit2" id=headname>ข้อมมูลลักษณะเม็ดยา</div>
           <div class="margin-top20 marginbottom10">
-            <button class="btn btn-outline-primary my-2 my-sm-0 font-Kanit" (click)="dialogTakephoto()" type="submit">สร้างข้อมูลด้วยภาพเม็ดยา</button>
+            <button class="btn btn-outline-primary my-2 my-sm-0 font-Kanit" (click)="dialogTakephoto()">สร้างข้อมูลด้วยภาพเม็ดยา</button>
           </div>
           <div class="margin-top20 marginbottom10">
             <img src="../../assets/pill-04.png" width="30%" height="30%">
@@ -21,10 +21,10 @@
             <div class="row margin">
               <div class="col-md-6 margin-top20">
                 <mat-form-field>
-                  <mat-select placeholder="รูปร่างเม็ดยา">
-                    <mat-option value="option">วงกลม</mat-option>
-                    <mat-option value="option">วงรี</mat-option>
-                    <mat-option value="option">แคปซูล</mat-option>
+                  <mat-select formControlName="shape" placeholder="รูปร่างเม็ดยา">
+                    <mat-option value="circle">วงกลม</mat-option>
+                    <mat-option value="elliptic">วงรี</mat-option>
+                    <mat-option value="capsule">แคปซูล</mat-option>
                   </mat-select>
                 </mat-form-field>
               </div>
@@ -33,18 +33,18 @@
             <div class="row margin">
               <div class="col-md-6">
                 <mat-form-field>
-                  <input matInput placeholder="ขนาด">
+                  <input formControlName="area" matInput placeholder="ขนาด">
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="สี">
+                  <input formControlName="colorName" matInput placeholder="สี">
                 </mat-form-field>
               </div>
               <div class="col-md-6">
                 <mat-form-field>
-                  <input matInput placeholder="รัศมี">
+                  <input formControlName="radius" matInput placeholder="รัศมี">
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="ค่าความกลม">
+                  <input formControlName="circularity" matInput placeholder="ค่าความกลม">
                 </mat-form-field>
               </div>
             </div>
@@ -52,15 +52,15 @@
             <div class="row margin">
               <div class="col-md-6 margin-top20">
                 <mat-form-field>
-                  <input matInput placeholder="Red">
+                  <input formControlName="R" matInput placeholder="Red">
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="Green">
+                  <input formControlName="G" matInput placeholder="Green">
                 </mat-form-field>
               </div>
               <div class="col-md-6 margin-top20">
                 <mat-form-field>
-                  <input matInput placeholder="Blue">
+                  <input formControlName="B" matInput placeholder="Blue">
                 </mat-form-field>
               </div>
             </div>
@@ -68,21 +68,21 @@
             <div class="row margin">
               <div class="col-md-6 margin-top20">
                 <mat-form-field>
-                  <input matInput placeholder="Hue">
+                  <input formControlName="H" matInput placeholder="Hue">
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="Saturation">
+                  <input formControlName="S" matInput placeholder="Saturation">
                 </mat-form-field>
               </div>
               <div class="col-md-6 margin-top20">
                 <mat-form-field>
-                  <input matInput placeholder="value">
+                  <input formControlName="V" matInput placeholder="value">
                 </mat-form-field>
               </div>
             </div>
           </div>
           <div class="marginbottom10 margin-top10">
-            <button class="btn btn-outline-success my-2 my-sm-0 font-Kanit" type="submit">ยืนยัน</button>
+            <button class="btn btn-outline-success my-2 my-sm-0 font-Kanit" (click)="onSubmit()" type="submit">ยืนยัน</button>
             <button class="btn btn-outline-danger my-2 my-sm-0 font-Kanit" type="cancle">ยกเลิก</button>
           </div>
           <div class="alert alert-danger" role="alert">
@@ -101,7 +101,7 @@
           <div class="font-Kanit2" id=headname>ข้อมูลรายละเอียดยา</div>
 
           <div class="margin-top20 marginbottom10">
-            <button class="btn btn-outline-primary my-2 my-sm-0 font-Kanit" (click)="dialogTakephoto2()" type="submit">สร้างข้อมูลด้วยเอกสารกำกับยา</button>
+            <button class="btn btn-outline-primary my-2 my-sm-0 font-Kanit" (click)="dialogTakephoto2()" >สร้างข้อมูลด้วยเอกสารกำกับยา</button>
           </div>
           <div class="example-container margin-right10 margin-left10">
             <mat-form-field>
@@ -150,7 +150,7 @@
             </mat-form-field>
           </div>
           <div class="marginbottom10 margin-top10">
-            <button class="btn btn-outline-success my-2 my-sm-0 font-Kanit" type="submit">ยืนยัน</button>
+            <button class="btn btn-outline-success my-2 my-sm-0 font-Kanit">ยืนยัน</button>
             <button class="btn btn-outline-danger my-2 my-sm-0 font-Kanit" type="cancle">ยกเลิก</button>
           </div>
 

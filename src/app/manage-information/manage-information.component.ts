@@ -13,10 +13,10 @@ import { DialogDeleteComponent } from '../dialog-delete/dialog-delete.component'
 export class ManageInformationComponent implements OnInit {
 
   constructor(private dialog: MatDialog, private api: PageService, private router: Router) { }
-  nameDrug = '';
   drugShowInfo: any;
+  searcheQuery = '';
   ngOnInit() {
-    this.api.listDrug(this.nameDrug).subscribe(
+    this.api.listDrug(this.searcheQuery).subscribe(
       res => {
         this.drugShowInfo = res.data;
         console.log(this.drugShowInfo);
@@ -37,4 +37,46 @@ export class ManageInformationComponent implements OnInit {
     const dialogRefLoading = this.dialog.open(DialogDeleteComponent);
   }
 
+  searchDrug() {
+    this.api.listDrug(this.searcheQuery).subscribe(
+      res => {
+        console.log(res);
+        this.drugShowInfo = res.data;
+        for (let i = 0; i <= this.drugShowInfo.length - 1; i++) {
+          this.drugShowInfo[i].keywords.properties = this.drugShowInfo[i].keywords.properties.substring(0, 100) + '...';
+        }
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  deleteDrug(idx: any) {
+    // const dialogRef = this.dialog.open(DialogDeleteComponent);
+    // dialogRef.componentInstance.title = "ข้อมูลยา";
+    // dialogRef.componentInstance.message = "ต้องการลบใช่หรือไม่"
+    // dialogRef.componentInstance.choiceOne = "ตกลง"
+    // dialogRef.componentInstance.choiceTwo = "ยกเลิก"
+    // dialogRef.afterClosed().subscribe((result) => {
+    //   if (result) {
+    //     let drugInfo = {
+    //       _id: this.itemList[idx]._id,
+    //       _status: 0
+    //     }
+    //     this.api.updateDrug(drugInfo).subscribe(
+    //       res => {
+    //         console.log(res)
+    //         this.searchDrug();
+    //       },
+    //       error => {
+    //         console.log(error)
+    //       }
+    //     )
+    //     //ตกลง
+    //   } else {
+    //     //ไม่ตกลง
+    //   }
+    // });
+  }
 }

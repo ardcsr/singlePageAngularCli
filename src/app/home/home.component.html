@@ -4,24 +4,30 @@
   <link href="https://fonts.googleapis.com/css?family=Concert+One|Lalezar|Overlock|Passion+One|Patua+One|Share|Kanit" rel="stylesheet">
 
   <!-- <class="backscreen" width="90%" height="90%"></class> -->
-  <!-- <div>
-  <div class="font-concert margintop10" id=headname>DRUG INFORMATION</div>
-  <br>
-  <div class="font-Overlock" id=headname>Search by name, drug properties</div>
-  <div class="font-Overlock" id=headname>symptoms and characteristics of the drug.</div>
-  <br>
-  <br>
-  <div align="center"> 
-    <div class="cardnest1">
-    <input *ngIf="editInput==true" type="text" id="fname" name="username" placeholder="Search.."></div>
-    <button class="button center-block" (click)=onStatusEdit()>SEARCH</button>    
-    <br>
-    <br>
-    <button *ngIf="statusLogin" class="button2 center-block " routerLink='/login' routerLinkActive='active'>LOGIN</button>
-  </div>
-</div> -->
-  
-<div>
+  <div>
+    <div *ngIf="statusSearch==false">
+      <div class="font-concert margintop10" id=headname>DRUG INFORMATION</div>
+      <br>
+      <div class="font-Overlock" id=headname>Search by name, drug properties</div>
+      <div class="font-Overlock" id=headname>symptoms and characteristics of the drug.</div>
+      <br>
+      <br>
+    </div>
+
+    <div align="center">
+      <div class="cardnest1">
+        <input *ngIf="editInput==true" type="text" [(ngModel)]="query" id="fname" name="username" placeholder="Search.." (keyup)="searchDrug(query)">
+      </div>
+      <div *ngIf="statusSearch==false">
+        <button class="button center-block" (click)=onStatusEdit()>SEARCH</button>
+        <br>
+        <br>
+        <button *ngIf="statusLogin" class="button2 center-block " routerLink='/login' routerLinkActive='active'>LOGIN</button>
+      </div>
+    </div>
+    <!-- </div>
+
+  <div> -->
     <div class="row margin margin">
       <div class="col-md-4">
 
@@ -31,7 +37,7 @@
 
         <div align="center">
           <div class="cardnest1">
-            <input type="text" id="fname" name="username" placeholder="Search..">
+            <!-- <input type="text" [(ngModel)]="query" id="fname" name="username" placeholder="Search.." (keyup)="searchDrug(query)"> -->
           </div>
         </div>
 
@@ -46,26 +52,26 @@
     <div class="row margin" align="center">
       <div class="col-md-3"></div>
       <div class="col-md-6">
-        <div class="row margin" align="center">
-          <div class="col-md-2">           
+        <div *ngIf="statusSearch==true" class="row margin" align="center">
+          <div class="col-md-2">
           </div>
           <div class="col-md-4">
             <mat-form-field class="font-Kanit">
-              <mat-select placeholder="รูปร่างเม็ดยา">
-                <mat-option value="option">เลือกทั้งหมด</mat-option>
-                <mat-option value="option">วงกลม</mat-option>
-                <mat-option value="option">วงรี</mat-option>
-                <mat-option value="option">แคปซูล</mat-option>
+              <mat-select (change)="filter()" [(ngModel)]="selectedShape" placeholder="รูปร่างเม็ดยา">
+                <mat-option value="selectAll">เลือกทั้งหมด</mat-option>
+                <mat-option value="circle">วงกลม</mat-option>
+                <mat-option value="elliptic">วงรี</mat-option>
+                <mat-option value="capsule">แคปซูล</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
           <div class="col-md-4">
             <mat-form-field class="font-Kanit">
-              <mat-select placeholder="สี">
-                <mat-option value="option">เลือกทั้งหมด</mat-option>
-                <mat-option value="option">ขาว</mat-option>
-                <mat-option value="option">ครีม</mat-option>
-                <mat-option value="option">ม่วง</mat-option>
+              <mat-select (change)="filter()" [(ngModel)]="selectedColor" placeholder="สี">
+                <mat-option value="allColor">เลือกทั้งหมด</mat-option>
+                <mat-option value="white">ขาว</mat-option>
+                <mat-option value="cream">ครีม</mat-option>
+                <mat-option value="violet">ม่วง</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
@@ -79,9 +85,9 @@
       <div class="col-md-3"></div>
       <div class="col-md-6">
         <div align="center">
-          <div *ngFor="let drug of drugs">
+          <div *ngFor="let drug of drugList">
             <div class="card  marginbottom5">
-              <div class="card-header hand txt" id=headname>{{drug?._name}}
+              <div class="card-header hand txt" (click)="seeData(drug?._id)" id=headname>{{drug?._name}}
               </div>
               <div class="card-body">
                 <div class="row">
