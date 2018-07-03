@@ -16,12 +16,14 @@ export class InformationComponent implements OnInit {
   // tslint:disable-next-line:max-line-length
   constructor(private dialog: MatDialog, private activatedRoute: ActivatedRoute, private api: PageService, private formBuilder: FormBuilder) { }
   userId: any;
+  titleText = 'สร้าง';
   ngOnInit() {
     this.buildForm();
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       this.userId = params['drugId'];
       console.log(this.userId);
       if (this.userId) {
+        this.titleText = 'แก้ไข';
         this.showInfo(this.userId);
       }
     });
@@ -52,10 +54,22 @@ export class InformationComponent implements OnInit {
       H: this.formBuilder.control(null, [Validators.required]),
       S: this.formBuilder.control(null, [Validators.required]),
       V: this.formBuilder.control(null, [Validators.required]),
-      1: this.formBuilder.control(null, [Validators.required]),
-      2: this.formBuilder.control(null, [Validators.required]),
-      3: this.formBuilder.control(null, [Validators.required]),
-      4: this.formBuilder.control(null, [Validators.required]),
+      compostion: this.formBuilder.control(null, [Validators.required]),
+      productDescription: this.formBuilder.control(null, [Validators.required]),
+      pharmacology: this.formBuilder.control(null, [Validators.required]),
+      indications: this.formBuilder.control(null, [Validators.required]),
+      dosage: this.formBuilder.control(null, [Validators.required]),
+      contraindications: this.formBuilder.control(null, [Validators.required]),
+      warninge: this.formBuilder.control(null, [Validators.required]),
+      interactions: this.formBuilder.control(null, [Validators.required]),
+      pregnacy: this.formBuilder.control(null, [Validators.required]),
+      sideEffects: this.formBuilder.control(null, [Validators.required]),
+      overdosage: this.formBuilder.control(null, [Validators.required]),
+      storage: this.formBuilder.control(null, [Validators.required]),
+      revesedDate: this.formBuilder.control(null, [Validators.required]),
+      packaging: this.formBuilder.control(null, [Validators.required]),
+      note: this.formBuilder.control(null, [Validators.required]),
+      actions: this.formBuilder.control(null, [Validators.required]),
       // requiredPattern: this.formBuilder.control(null, [Validators.required, Validators.pattern(/^#(?:[0-9a-fA-F]{3}){1,2}$/)]),
     });
 

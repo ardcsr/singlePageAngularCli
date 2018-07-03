@@ -9,9 +9,9 @@
         <div class="font-Kanit2 marginbottom10" id=headname>ค้นหาข้อมูลสมาชิก</div>
         <div align="left">
           <mat-form-field class="margileft10 marginRight10">
-            <input matInput placeholder="รหัสสมาชิก">
+            <input matInput [(ngModel)]="searcheQuery" placeholder="รหัสสมาชิก">
           </mat-form-field>
-          <button class="btn btn-outline-primary my-2 my-sm-0 font-Kanit" type="submit">ค้นหา</button>
+          <button class="btn btn-outline-primary my-2 my-sm-0 font-Kanit" (click)="searchDrug()" type="submit">ค้นหา</button>
         </div>
       </div>
   
@@ -46,7 +46,7 @@
               <td>{{item._lastname}}</td>
               <td>{{item._role}}</td>
               <th><button mat-icon-button>
-                <mat-icon cdk-focus-start aria-label="Example icon-button with a heart icon" class="white">settings</mat-icon>
+                <mat-icon cdk-focus-start aria-label="Example icon-button with a heart icon" (click)="showUser(item._id)" class="white">settings</mat-icon>
               </button>
               <button mat-icon-button>
                 <mat-icon cdk-focus-start aria-label="Example icon-button with a heart icon" class="white">delete</mat-icon>

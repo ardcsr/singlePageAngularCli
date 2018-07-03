@@ -2,7 +2,7 @@
 <div>
   <!-- <app-header></app-header> -->
   <link href="https://fonts.googleapis.com/css?family=Concert+One|Lalezar|Overlock|Passion+One|Patua+One|Share|Kanit" rel="stylesheet">
-  <div class="font-Kanit1" id=headname>สร้างข้อมูลยา</div>
+  <div class="font-Kanit1" id=headname>{{titleText}}ข้อมูลยา</div>
   <div [formGroup]="validationForm" class="row margin" style="width: 100%;">
     <div class="col-md-6 ">
       <div align="center">
@@ -108,46 +108,51 @@
               <input matInput placeholder="ชื่อ">
             </mat-form-field>
             <mat-form-field>
-              <input matInput placeholder="ส่วนประกอบ">
+              <input formControlName="compostion" matInput placeholder="ส่วนประกอบ">
             </mat-form-field>
             <mat-form-field>
-              <input matInput placeholder="ลักษณะของผลิตภัณฑ์">
+              <input formControlName="productDescription" matInput placeholder="ลักษณะของผลิตภัณฑ์">
             </mat-form-field>
             <mat-form-field>
-              <input matInput placeholder="เภสัชพลศาสตร์และเภสัชจลศาสตร์">
+              <input formControlName="pharmacology" matInput placeholder="เภสัชพลศาสตร์และเภสัชจลศาสตร์">
             </mat-form-field>
             <mat-form-field>
-              <textarea matInput placeholder="ข้อบ่งใช้"></textarea>
+              <textarea formControlName="indications" matInput placeholder="ข้อบ่งใช้"></textarea>
             </mat-form-field>
             <mat-form-field>
-              <textarea matInput placeholder="วิธีรับประทาน"></textarea>
+              <textarea formControlName="dosage" matInput placeholder="วิธีรับประทาน"></textarea>
             </mat-form-field>
             <mat-form-field>
-              <textarea matInput placeholder="ข้อห้าใช้"></textarea>
+              <textarea formControlName="contraindications" matInput placeholder="ข้อห้ามใช้"></textarea>
             </mat-form-field>
             <mat-form-field>
-              <textarea matInput placeholder="คำเตือนและข้อควรระวัง"></textarea>
+              <textarea formControlName="warninge" matInput placeholder="คำเตือนและข้อควรระวัง"></textarea>
             </mat-form-field>
             <mat-form-field>
-              <textarea matInput placeholder="การใช้ยาในสตรีมีครรภ์และให้นมบุตร"></textarea>
+              <textarea formControlName="pregnacy" matInput placeholder="การใช้ยาในสตรีมีครรภ์และให้นมบุตร"></textarea>
             </mat-form-field>
             <mat-form-field>
-              <textarea matInput placeholder="อาการไม่พึงประสงค์"></textarea>
+              <textarea formControlName="sideEffects" matInput placeholder="อาการไม่พึงประสงค์"></textarea>
             </mat-form-field>
             <mat-form-field>
-              <textarea matInput placeholder="การเก็บระษา"></textarea>
+                <textarea formControlName="overdosage" matInput placeholder="การใช้ยาเกินขนาดและการรักษา"></textarea>
+              </mat-form-field>
+            <mat-form-field>
+              <textarea formControlName="storage" matInput placeholder="การเก็บระษา"></textarea>
             </mat-form-field>
             <mat-form-field>
-              <textarea matInput placeholder="ขนาดบรรจุ"></textarea>
+              <textarea formControlName="packaging" matInput placeholder="ขนาดบรรจุ"></textarea>
             </mat-form-field>
+            <mat-form-field>
+                <textarea formControlName="note" matInput placeholder="หมายเหตุ"></textarea>
+              </mat-form-field>
+              <mat-form-field>
+                  <textarea formControlName="actions" matInput placeholder="การออกฤทธิ์"></textarea>
+                </mat-form-field>
+  
 
 
-
-            <mat-form-field>
-              <mat-select placeholder="Select">
-                <mat-option value="option">Option</mat-option>
-              </mat-select>
-            </mat-form-field>
+            
           </div>
           <div class="marginbottom10 margin-top10">
             <button class="btn btn-outline-success my-2 my-sm-0 font-Kanit">ยืนยัน</button>

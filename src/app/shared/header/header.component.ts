@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PageService } from '../../pages/shared/page.service';
+import { Router } from '@angular/router';
 // import { HomeComponent } from '../../home/home.component';
 
 @Component({
@@ -9,21 +10,23 @@ import { PageService } from '../../pages/shared/page.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private api: PageService) { }
-  userId=""
+  constructor(private api: PageService, private router: Router) { }
+  userId = '';
+  userInfo = '';
   ngOnInit() {
-
-    this.userId=localStorage.getItem('token');
-    console.log(this.userId)
+    this.userInfo = this.api.getUserInfo();
+    this.userId = localStorage.getItem('token');
+    console.log(this.userId);
   }
-  signOut(){
-    localStorage.removeItem('token')
-    this.userId=null
+  signOut() {
+    localStorage.removeItem('token');
+    this.userId = null;
+    this.router.navigate(['']);
     // this.homer.logoutforHeader();
   }
-//{ path: 'user', component: UserComponent },
-// { path: 'manageUser', component: ManageUserComponent },
-// { path: 'manageInformation', component: ManageInformationComponent },
-// { path: 'information', component: InformationComponent },
-// { path: 'login', component: LoginComponent },
+  // { path: 'user', component: UserComponent },
+  // { path: 'manageUser', component: ManageUserComponent },
+  // { path: 'manageInformation', component: ManageInformationComponent },
+  // { path: 'information', component: InformationComponent },
+  // { path: 'login', component: LoginComponent },
 }

@@ -10,9 +10,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   signInGroup: FormGroup;
-  constructor(private api: PageService, private formBuilder: FormBuilder,private router: Router) { }
+  constructor(private api: PageService, private formBuilder: FormBuilder, private router: Router) { }
   hide = true;
-  errorStatus=false;
+  errorStatus = false;
 
   ngOnInit() {
     this.buildForm();
@@ -21,25 +21,26 @@ export class LoginComponent implements OnInit {
     this.signInGroup = this.formBuilder.group({
       username: this.formBuilder.control(null, [Validators.required]),
       password: this.formBuilder.control(null, [Validators.required]),
-    })
+    });
   }
   signIn() {
     this.api.signIn(this.signInGroup.value).subscribe(
       res => {
-        if (res.statusCode == 200) {
+        if (res.statusCode === 200) {
           this.api.createToken(res.data);
-          var userInfo = JSON.parse(decodeURIComponent(atob(res.data.split('.')[1])));
-          localStorage.setItem('userInfo', userInfo)
-          this.router.navigate([""])
-        }else{
-          this.errorStatus=true;
+          const userInfo = JSON.parse(decodeURIComponent(atob(res.data.split('.')[1])));
+          localStorage.setItem('userInfo', JSON.stringify(userInfo));
+          console.log(userInfo);
+          this.router.navigate(['']);
+        } else {
+          this.errorStatus = true;
         }
       },
       error => {
-        this.errorStatus=true;
-        console.log(error)
+        this.errorStatus = true;
+        console.log(error);
       }
-    )
+    );
   }
 
 }

@@ -2,8 +2,8 @@
 <div>
   <!-- <app-header></app-header> -->
   <link href="https://fonts.googleapis.com/css?family=Concert+One|Lalezar|Overlock|Passion+One|Patua+One|Share|Kanit" rel="stylesheet">
-  <div class="font-Kanit1" id=headname>สร้างข้อมูลสมาชิก</div>
-  <div class="margin" style="width: 100%;">
+  <div class="font-Kanit1" id=headname>{{titleText}}ข้อมูลสมาชิก</div>
+  <div [formGroup]="validationForm" class="margin" style="width: 100%;">
 
     <div align="center">
       <div class="cardnest button3 div1 margin-top50 marginbottom50">
@@ -23,12 +23,12 @@
           <div class="row margin">
             <div class="col-md-6">
               <mat-form-field>
-                <input matInput placeholder="Username">
+                <input matInput formControlName="_username" placeholder="Username">
               </mat-form-field>
             </div>
             <div class="col-md-6">
               <mat-form-field>
-                <input matInput placeholder="Password">
+                <input matInput formControlName="_password" placeholder="Password">
               </mat-form-field>
             </div>
           </div>
@@ -36,12 +36,12 @@
           <div class="row margin">
             <div class="col-md-6 ">
               <mat-form-field>
-                <input matInput placeholder="ชื่อ">
+                <input matInput formControlName="_firstname" placeholder="ชื่อ">
               </mat-form-field>
             </div>
             <div class="col-md-6">
               <mat-form-field>
-                <input matInput placeholder="นามสกุล">
+                <input matInput formControlName="_lastname" placeholder="นามสกุล">
               </mat-form-field>
             </div>
           </div>
@@ -49,18 +49,18 @@
           <div class="row margin">
             <div class="col-md-6 ">
               <mat-form-field>
-                <input matInput placeholder="E-mail">
+                <input matInput formControlName="email" placeholder="E-mail">
               </mat-form-field>
               <mat-form-field>
-                <mat-select placeholder="ตำแหน่ง">
-                  <mat-option value="option">admin</mat-option>
-                  <mat-option value="option">user</mat-option>
+                <mat-select formControlName="_role" placeholder="ตำแหน่ง">
+                  <mat-option value="Administrator">admin</mat-option>
+                  <mat-option value="user">user</mat-option>
                 </mat-select>
               </mat-form-field>
             </div>
             <div class="col-md-6 ">
               <mat-form-field>
-                <input matInput placeholder="เบอร์โทร">
+                <input matInput formControlName="telnum" placeholder="เบอร์โทร">
               </mat-form-field>
             </div>
 
