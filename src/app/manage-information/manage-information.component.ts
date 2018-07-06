@@ -53,30 +53,27 @@ export class ManageInformationComponent implements OnInit {
   }
 
   deleteDrug(idx: any) {
-    // const dialogRef = this.dialog.open(DialogDeleteComponent);
-    // dialogRef.componentInstance.title = "ข้อมูลยา";
-    // dialogRef.componentInstance.message = "ต้องการลบใช่หรือไม่"
-    // dialogRef.componentInstance.choiceOne = "ตกลง"
-    // dialogRef.componentInstance.choiceTwo = "ยกเลิก"
-    // dialogRef.afterClosed().subscribe((result) => {
-    //   if (result) {
-    //     let drugInfo = {
-    //       _id: this.itemList[idx]._id,
-    //       _status: 0
-    //     }
-    //     this.api.updateDrug(drugInfo).subscribe(
-    //       res => {
-    //         console.log(res)
-    //         this.searchDrug();
-    //       },
-    //       error => {
-    //         console.log(error)
-    //       }
-    //     )
-    //     //ตกลง
-    //   } else {
-    //     //ไม่ตกลง
-    //   }
-    // });
+    const dialogRef = this.dialog.open(DialogDeleteComponent);
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(result);
+      if (result) {
+        const drugInfo = {
+          _id: this.drugShowInfo[idx]._id,
+          _status: 0
+        };
+        this.api.updateDrug(drugInfo).subscribe(
+          res => {
+            console.log(res);
+            this.searchDrug();
+          },
+          error => {
+            console.log(error);
+          }
+        );
+        // ตกลง
+      } else {
+        // ไม่ตกลง
+      }
+    });
   }
 }

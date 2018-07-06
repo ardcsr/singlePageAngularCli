@@ -1,23 +1,44 @@
-<div style="width: 900px; min-height: 500px">
-    <div class="marginbottom10">
-  <div>การเพิ่มข้อมูลยาด้วยภาพเกสารกำกับยา</div></div>  
+<div style="width: 900px; min-height: 500px; z-index: 99;">
+  <div class="marginbottom10">
+    <div class="font-Kanit1">การเพิ่มข้อมูลยาด้วยภาพเกสารกำกับยา</div>
+  </div>
+  <div *ngIf="statusOcr==false">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">เลือกรูปภาพเอกสารกำกับยาที่ต้องการนำข้อมูลกรอกเข้าระบบ</h5>
+        <p class="card-text">รูปภาพที่เอกสารกำกับยาควรมีความคมชัดของตัวอักษรและไม่มีขนาดที่เล็กเกินไป เพื่อประสิทธิภาพในการประมวลผลของระบบ</p>
+        <!-- <a href="#" (click)="change(files)" class="btn btn-primary">เลือกรูปภาพ</a> -->
+        <input type="file" #files (change)="change(files)" multiple />
+      </div>
+    </div>
+    <div>
+      <div align="center">
+        <img src="http://35.240.180.95:38302/api/document/get/{{imagePath[0]}}" style="max-height: 400px;">
+      </div>
+
+    </div>
+  </div>
+  <div *ngIf="statusOcr==true">
+    <div class="form-group" align="center">
+      <label for="exampleFormControlSelect2">กรุณาตรวจสอบและแก้ไขข้อมูลให้ถูกต้องตรงกับเอกสารกำกับยา</label>
+      <!-- <select  class="form-control" style="width: 90%; height: 400px;" id="exampleFormControlSelect2"> -->
         
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">เลือกรูปภาพเอกสารกำกับยาที่ต้องการนำข้อมูลกรอกเข้าระบบ</h5>
-              <p class="card-text">รูปภาพที่เอกสารกำกับยาควรมีความคมชัดของตัวอักษรและไม่มีขนาดที่เล็กเกินไป เพื่อประสิทธิภาพในการประมวลผลของระบบ</p>
-              <a href="#" class="btn btn-primary">เลือกรูปภาพ</a>
-            </div>
-          </div>  
-          <div>
+        <textarea multiple class="form-control" style="width: 90%; height: 400px;" id="exampleFormControlSelect2" rows="3"></textarea>
+      <!-- </select> -->
+    </div>
+    <!-- <div class="form-group">
+      <label for="exampleFormControlTextarea1">Example textarea</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div> -->
+  </div>
 
 
-          </div>     
-          
-        <div  align="right">
-          <a href="#" class="btn btn-primary">ดำเนินการต่อ</a>
-        </div>
+  <div class="modal-footer">
+
+    <button type="button" class="btn btn-primary" (click)=processOcr()>ดำเนินการต่อ</button>
+  </div>
 
 
-     
+
+
 </div>

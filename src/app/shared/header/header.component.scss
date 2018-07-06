@@ -5,7 +5,7 @@ header {
     position: sticky;
     left: 0;
     top: 0;
-    z-index: 100000000000000000000000000000000000000000000000000000000;
+    z-index: 90;
     // box-sizing: border-box;
   }
   
@@ -79,6 +79,10 @@ header {
 .margin60{
   margin-right: 60px;
 }
+.margin10{
+  margin-right: 1%;
+}
+
 
 
 

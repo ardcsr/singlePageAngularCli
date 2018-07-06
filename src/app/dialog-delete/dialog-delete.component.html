@@ -2,10 +2,10 @@
   <div>ต้องการลบข้อมูลใช่หรือไม่</div>
   <div class="row margintop10" align="center">
     <div class="col-md-6">
-      <button class="buttons  hand ">ตกลง</button>
+      <button class="buttons  hand " (click)="dialogRef.close(true)">ตกลง</button>
     </div>
     <div class="col-md-6">
-      <button class="buttons1 hand ">ยกเลิก</button>
+      <button class="buttons1 hand " (click)="dialogRef.close(false)">ยกเลิก</button>
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { PageService } from '../pages/shared/page.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -10,10 +10,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class UserComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute, private api: PageService, private formBuilder: FormBuilder) { }
+  // tslint:disable-next-line:max-line-length
+  constructor(private activatedRoute: ActivatedRoute, private api: PageService, private formBuilder: FormBuilder, private router: Router) { }
   userId = '';
   validationForm: FormGroup;
   titleText = 'สร้าง';
+  statusEditFail = false;
+  statusEditSus = false;
   ngOnInit() {
     this.buildForm();
     this.activatedRoute.queryParams.subscribe((params: Params) => {
@@ -58,6 +61,48 @@ export class UserComponent implements OnInit {
       }
     );
     this.validationForm.patchValue({});
+  }
+
+  onSubmit() {
+    // this.formSubmitted = true;
+    let userFrom = this.validationForm.value;
+    if (this.userId) {
+      const User = { _id: this.userId };
+      userFrom = Object.assign(User, userFrom);
+      console.log(userFrom);
+      this.updateUser(userFrom);
+    } else {
+      this.createUser(userFrom);
+    }
+
+  }
+  updateUser(userFrom) {
+    this.api.updateUser(userFrom).subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (error) => {
+        console.log(error);
+      });
+  }
+  createUser(userFrom) {
+    this.api.createUser(userFrom).subscribe(
+      (res) => {
+        console.log(res);
+        if (res.statusCode === 200) {
+          this.statusEditFail = false;
+          this.statusEditSus = true;
+        } else {
+          this.statusEditFail = true;
+          this.statusEditSus = false;
+        }
+        // this.router.navigate(['/app/manageuser']);
+      },
+      (error) => {
+        console.log(error);
+        this.statusEditFail = true;
+        this.statusEditSus = false;
+      });
   }
 
 }

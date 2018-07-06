@@ -67,13 +67,13 @@
           </div>
         </div>
         <div class="marginbottom10 margin-top10">
-          <button class="btn btn-outline-success my-2 my-sm-0 font-Kanit" type="submit">ยืนยัน</button>
+          <button class="btn btn-outline-success my-2 my-sm-0 font-Kanit" (click)="onSubmit()" type="submit">ยืนยัน</button>
           <button class="btn btn-outline-danger my-2 my-sm-0 font-Kanit" type="cancle">ยกเลิก</button>
         </div>
-        <div class="alert alert-danger" role="alert">
+        <div *ngIf="statusEditFail" class="alert alert-danger" role="alert">
           <p>กรุณากรอกข้อมูลให้ครบก่อนกด "ยืนยัน".</p>
         </div>
-        <div class="alert alert-success" role="alert">
+        <div *ngIf="statusEditSus" class="alert alert-success" role="alert">
           <p>คุณได้ทำการยืนยันสำเร็จแล้ว :)</p>
         </div>
       </div>

@@ -5,7 +5,9 @@ import { DialogOcrComponent } from '../dialog-ocr/dialog-ocr.component';
 import { Params, ActivatedRoute, Router } from '@angular/router';
 import { PageService } from '../pages/shared/page.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-
+// tslint:disable-next-line:import-blacklist
+import 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'app-information',
   templateUrl: './information.component.html',
@@ -13,10 +15,16 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 })
 export class InformationComponent implements OnInit {
   validationForm: FormGroup;
+  drugModel: any;
   // tslint:disable-next-line:max-line-length
   constructor(private dialog: MatDialog, private activatedRoute: ActivatedRoute, private api: PageService, private formBuilder: FormBuilder) { }
   userId: any;
   titleText = 'สร้าง';
+  statusFail = false;
+  statusSus = false;
+  imageInfo: any;
+  imagePath: any;
+  url = 'http://dev.baeslab.com:38302/api/document/upload';
   ngOnInit() {
     this.buildForm();
     this.activatedRoute.queryParams.subscribe((params: Params) => {
@@ -74,9 +82,7 @@ export class InformationComponent implements OnInit {
     });
 
   }
-  onSubmit() {
-    console.log(this.validationForm.value);
-  }
+
   showInfo(ID) {
     this.api.showDrug(ID).subscribe(
       res => {
@@ -99,6 +105,22 @@ export class InformationComponent implements OnInit {
             V: res.data._HSVProfile.value,
             circularity: res.data._dimensions.circularity,
             properties: res.data.keywords.properties,
+            compostion: res.data.compostion,
+            productDescription: res.data.productDescription,
+            pharmacology: res.data.pharmacology,
+            indications: res.data.indications,
+            dosage: res.data.dosage,
+            contraindications: res.data.contraindications,
+            warninge: res.data.warninge,
+            interactions: res.data.interactions,
+            pregnacy: res.data.pregnacy,
+            sideEffects: res.data.sideEffects,
+            overdosage: res.data.overdosage,
+            storage: res.data.storage,
+            revesedDate: res.data.revesedDate,
+            packaging: res.data.packaging,
+            note: res.data.note,
+            actions: res.data.actions,
           });
 
         }
@@ -108,5 +130,143 @@ export class InformationComponent implements OnInit {
       }
     );
     this.validationForm.patchValue({});
+  }
+
+  onSubmit() {
+
+    let splitedColorName;
+    if (typeof this.validationForm.value.colorName === 'string') {
+      splitedColorName = this.validationForm.value.colorName.split('-');
+    } else {
+      splitedColorName = this.validationForm.value.colorName;
+    }
+    let splitedPropoties;
+    if (typeof this.validationForm.value.properties === 'string') {
+      splitedPropoties = this.validationForm.value.properties.split(',');
+    } else {
+      splitedPropoties = this.validationForm.value.properties;
+    }
+
+
+
+    console.log('splitedColorName : ', splitedColorName);
+    console.log('splitedPropoties : ', splitedPropoties);
+    // this.formSubmitted = true;
+    this.drugModel = {
+      _name: this.validationForm.value._name,
+      _brandName: 'brandName',
+      _RGBProfile: {
+        red: this.validationForm.value.R,
+        green: this.validationForm.value.G,
+        blue: this.validationForm.value.B
+      },
+      _HSVProfile: {
+        hue: this.validationForm.value.H,
+        saturation: this.validationForm.value.S,
+        value: this.validationForm.value.V
+
+      },
+      _dimensions: {
+        area: this.validationForm.value.area,
+        radius: this.validationForm.value.radius,
+        circularity: this.validationForm.value.circularity,
+        shape: this.validationForm.value.shape
+      },
+      description: this.validationForm.value.description,
+      keywords: {
+        ColorName: splitedColorName,
+        properties: splitedPropoties
+      },
+      _status: 1,
+      imageId: [],
+      compostion: this.validationForm.value.compostion,
+      productDescription: this.validationForm.value.productDescription,
+      pharmacology: this.validationForm.value.pharmacology,
+      indications: this.validationForm.value.indications,
+      dosage: this.validationForm.value.dosage,
+      contraindications: this.validationForm.value.contraindications,
+      warninge: this.validationForm.value.warninge,
+      interactions: this.validationForm.value.interactions,
+      pregnacy: this.validationForm.value.pregnacy,
+      sideEffects: this.validationForm.value.sideEffects,
+      overdosage: this.validationForm.value.overdosage,
+      storage: this.validationForm.value.storage,
+      revesedDate: this.validationForm.value.revesedDate,
+      packaging: this.validationForm.value.packaging,
+      note: this.validationForm.value.note,
+      actions: this.validationForm.value.actions,
+
+    };
+    console.log(this.drugModel);
+    if (this.userId === true) {
+      const User = { _id: this.userId };
+      this.drugModel = Object.assign(User, this.drugModel);
+      console.log(this.drugModel);
+      this.api.updateDrug(this.drugModel).subscribe(
+        res => {
+          console.log(res);
+          if (res.statusCode === 200) {
+            this.statusFail = false;
+            this.statusSus = true;
+          } else {
+            this.statusFail = true;
+            this.statusSus = false;
+          }
+
+        },
+        error => {
+          console.log(error);
+          this.statusFail = true;
+          this.statusSus = false;
+        }
+      );
+      // update
+    } else {
+      this.api.createDrug(this.drugModel).subscribe(
+        res => {
+          console.log(res);
+          if (res.statusCode === 200) {
+            this.statusFail = false;
+            this.statusSus = true;
+          } else {
+            this.statusFail = true;
+            this.statusSus = false;
+          }
+        },
+        error => {
+          console.log(error);
+          this.statusFail = true;
+          this.statusSus = false;
+        }
+      );
+    }
+  }
+
+  change(files) {
+    for (let i = 0; i < files.files.length; i++) {
+      const formData = new FormData();
+      formData.append('file', files.files[i]);
+      formData.append('_userId', '01');
+      formData.append('_refId', '01');
+      formData.append('type', 'image');
+      formData.append('_status', '1');
+      // tslint:disable-next-line:max-line-length
+      Observable.fromPromise(fetch(this.url, { method: 'post', body: formData, headers: { 'Authorization': localStorage.getItem('token') } })).map(res => res.json()).subscribe(
+        res => {
+          res.then(value => {
+            this.imageInfo = value;
+            console.log(this.imageInfo);
+            if (this.imageInfo.statusCode === 200) {
+              this.imagePath.push(this.imageInfo.data._id);
+              console.log(this.imagePath);
+              // this.imagePath.push(this.imageId)
+            }
+          });
+        },
+        error => {
+          console.log('false');
+        }
+      );
+    }
   }
 }

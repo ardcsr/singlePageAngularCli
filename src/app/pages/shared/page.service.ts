@@ -6,9 +6,9 @@ export class PageService {
   BASE = 'http://dev.baeslab.com:38302';
   // BASE = 'http://localhost :38302';
   constructor(public http: Http) { }
-  //add link BASE with api
+  // add link BASE with api
   cbase(url, arr) {
-    var entry, i, len;
+    let entry, i, len;
     url = this.BASE + '/' + url;
     for (i = 0, len = arr.length; i < len; i++) {
       entry = arr[i];
@@ -32,61 +32,60 @@ export class PageService {
     return this.post(url, params, { headers: { 'Authorization': this.getToken() } });
   }
 
-  //set token to localStorage
+  // set token to localStorage
   createToken(data) {
-    localStorage.setItem('token', data)
+    localStorage.setItem('token', data);
     return true;
   }
-  //read token
+  // read token
   getToken(): string {
-    return localStorage.getItem('token')
+    return localStorage.getItem('token');
   }
   // read userInfo from localStorage
   getUserInfo() {
-    let userInfo = JSON.parse(localStorage.getItem('userInfo'));
-    if (userInfo) return userInfo;
-    else return false;
+    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    if (userInfo) { return userInfo; } else { return false; }
   }
   // list drug form manage
   listDrug(sch) {
     return this.getWithAuthen('api/drug/list', [sch]); // (part,params, options)
   }
-  //show drug for Id
+  // show drug for Id
   showDrug(_id) {
     return this.get('api/drug/show', [_id], []); // (part,params, options)
   }
 
-  //make,create drug
+  // make,create drug
   createDrug(drugform) {
 
-    return this.post('api/drug/create', drugform, []);
+    return this.postWithAuthen('api/drug/create', drugform);
   }
-  //update drug for id
+  // update drug for id
   updateDrug(drugform) {
     return this.postWithAuthen('api/drug/update', drugform);
   }
-  //list user for manage
+  // list user for manage
   listUser(search) {
     return this.getWithAuthen('api/user/list', [search]);
 
   }
-  //show user for edit
+  // show user for edit
   showUser(userId) {
     return this.getWithAuthen('api/user/show', [userId]);
   }
-  //update user
+  // update user
   updateUser(userForm) {
-    return this.postWithAuthen('api/user/update', userForm)
+    return this.postWithAuthen('api/user/update', userForm);
   }
   // make,create new drug
   createUser(userform) {
-    return this.postWithAuthen('api/user/create', userform)
+    return this.postWithAuthen('api/user/create', userform);
   }
-  //search drug for homepage
+  // search drug for homepage
   searchDrug(drugform) {
     return this.postWithAuthen('api/drug/search', drugform);
   }
-  //login
+  // login
   signIn(user) {
     return this.post('api/signin', user, []);
   }
@@ -96,7 +95,7 @@ export class PageService {
   // }
   // list image
   listImg(img) {
-    return this.get('api/document/list', [img], [])
+    return this.get('api/document/list', [img], []);
   }
 
 }

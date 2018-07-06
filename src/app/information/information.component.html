@@ -101,20 +101,20 @@
           <div class="font-Kanit2" id=headname>ข้อมูลรายละเอียดยา</div>
 
           <div class="margin-top20 marginbottom10">
-            <button class="btn btn-outline-primary my-2 my-sm-0 font-Kanit" (click)="dialogTakephoto2()" >สร้างข้อมูลด้วยเอกสารกำกับยา</button>
+            <button class="btn btn-outline-primary my-2 my-sm-0 font-Kanit" (click)="dialogTakephoto2()">สร้างข้อมูลด้วยเอกสารกำกับยา</button>
           </div>
           <div class="example-container margin-right10 margin-left10">
             <mat-form-field>
-              <input matInput placeholder="ชื่อ">
+              <input matInput formControlName="_name" placeholder="ชื่อ">
             </mat-form-field>
             <mat-form-field>
-              <input formControlName="compostion" matInput placeholder="ส่วนประกอบ">
+              <textarea formControlName="compostion" matInput placeholder="ส่วนประกอบ"></textarea>
             </mat-form-field>
             <mat-form-field>
-              <input formControlName="productDescription" matInput placeholder="ลักษณะของผลิตภัณฑ์">
+              <textarea formControlName="productDescription" matInput placeholder="ลักษณะของผลิตภัณฑ์"></textarea>
             </mat-form-field>
             <mat-form-field>
-              <input formControlName="pharmacology" matInput placeholder="เภสัชพลศาสตร์และเภสัชจลศาสตร์">
+              <textarea formControlName="pharmacology" matInput placeholder="เภสัชพลศาสตร์และเภสัชจลศาสตร์"></textarea>
             </mat-form-field>
             <mat-form-field>
               <textarea formControlName="indications" matInput placeholder="ข้อบ่งใช้"></textarea>
@@ -135,8 +135,8 @@
               <textarea formControlName="sideEffects" matInput placeholder="อาการไม่พึงประสงค์"></textarea>
             </mat-form-field>
             <mat-form-field>
-                <textarea formControlName="overdosage" matInput placeholder="การใช้ยาเกินขนาดและการรักษา"></textarea>
-              </mat-form-field>
+              <textarea formControlName="overdosage" matInput placeholder="การใช้ยาเกินขนาดและการรักษา"></textarea>
+            </mat-form-field>
             <mat-form-field>
               <textarea formControlName="storage" matInput placeholder="การเก็บระษา"></textarea>
             </mat-form-field>
@@ -144,15 +144,15 @@
               <textarea formControlName="packaging" matInput placeholder="ขนาดบรรจุ"></textarea>
             </mat-form-field>
             <mat-form-field>
-                <textarea formControlName="note" matInput placeholder="หมายเหตุ"></textarea>
-              </mat-form-field>
-              <mat-form-field>
-                  <textarea formControlName="actions" matInput placeholder="การออกฤทธิ์"></textarea>
-                </mat-form-field>
-  
+              <textarea formControlName="note" matInput placeholder="หมายเหตุ"></textarea>
+            </mat-form-field>
+            <mat-form-field>
+              <textarea formControlName="actions" matInput placeholder="การออกฤทธิ์"></textarea>
+            </mat-form-field>
 
 
-            
+
+
           </div>
           <div class="marginbottom10 margin-top10">
             <button class="btn btn-outline-success my-2 my-sm-0 font-Kanit">ยืนยัน</button>
