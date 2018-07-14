@@ -1,6 +1,6 @@
-<div style="width: 900px; min-height: 500px; z-index: 99;">
+<div style="width: 1200px; min-height: 500px; z-index: 99;">
   <div class="marginbottom10">
-    <div class="font-Kanit1">การเพิ่มข้อมูลยาด้วยภาพเกสารกำกับยา</div>
+    <div class="font-Kanit1">การเพิ่มข้อมูลยาด้วยภาพเอกสารกำกับยา</div>
   </div>
   <div *ngIf="statusOcr==false">
     <div class="card">
@@ -13,18 +13,27 @@
     </div>
     <div>
       <div align="center">
-        <img src="http://35.240.180.95:38302/api/document/get/{{imagePath[0]}}" style="max-height: 400px;">
+        <img src="http://35.240.156.34:38302/api/document/get/{{imagePath[0]}}" style="max-height: 400px;">
       </div>
 
     </div>
   </div>
   <div *ngIf="statusOcr==true">
-    <div class="form-group" align="center">
-      <label for="exampleFormControlSelect2">กรุณาตรวจสอบและแก้ไขข้อมูลให้ถูกต้องตรงกับเอกสารกำกับยา</label>
-      <!-- <select  class="form-control" style="width: 90%; height: 400px;" id="exampleFormControlSelect2"> -->
-        
-        <textarea multiple class="form-control" style="width: 90%; height: 400px;" id="exampleFormControlSelect2" rows="3"></textarea>
-      <!-- </select> -->
+    <div class="row" align="center">
+      <div class="col-md-6">
+          <img src="http://35.240.156.34:38302/api/document/get/{{imagePath[0]}}" style="max-height: 600px;">
+      </div>
+      <div class="col-md-6">
+
+
+        <div class="" align="center">
+          <label for="exampleFormControlSelect2">กรุณาตรวจสอบและแก้ไขข้อมูลให้ถูกต้องตรงกับเอกสารกำกับยา</label>
+          <!-- <select  class="form-control" style="width: 90%; height: 400px;" id="exampleFormControlSelect2"> -->
+
+          <textarea multiple class="form-control" style="width: 90%; height: 550px;" id="exampleFormControlSelect2" rows="3">{{dataText}}</textarea>
+          <!-- </select> -->
+          . </div>
+      </div>
     </div>
     <!-- <div class="form-group">
       <label for="exampleFormControlTextarea1">Example textarea</label>

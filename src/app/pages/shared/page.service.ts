@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class PageService {
   BASE = 'http://dev.baeslab.com:38302';
-  // BASE = 'http://localhost :38302';
+  OCR = 'http://35.240.156.34:38302';  // BASE = 'http://localhost :38302';
   constructor(public http: Http) { }
   // add link BASE with api
   cbase(url, arr) {
@@ -15,6 +15,18 @@ export class PageService {
       url += '/' + entry;
     }
     return url;
+  }
+  cbaseocr(url, arr) {
+    let entry, i, len;
+    url = this.OCR + '/' + url;
+    for (i = 0, len = arr.length; i < len; i++) {
+      entry = arr[i];
+      url += '/' + entry;
+    }
+    return url;
+  }
+  private getocr(url, params, options) {
+    return this.http.get(this.cbaseocr(url, params), options).map(res => res.json());
   }
 
   private get(url, params, options) {
@@ -96,6 +108,9 @@ export class PageService {
   // list image
   listImg(img) {
     return this.get('api/document/list', [img], []);
+  }
+  getOCR(id) {
+    return this.getocr('api/document/test', [id], []);
   }
 
 }

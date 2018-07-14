@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 // tslint:disable-next-line:import-blacklist
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
+import { PageService } from '../pages/shared/page.service';
 @Component({
   selector: 'app-dialog-ocr',
   templateUrl: './dialog-ocr.component.html',
@@ -10,11 +11,13 @@ import { Observable } from 'rxjs/Observable';
 })
 export class DialogOcrComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<DialogOcrComponent>) { }
+  constructor(public dialogRef: MatDialogRef<DialogOcrComponent>, private api: PageService) { }
   imageInfo: any;
   imagePath = [];
   statusOcr = false;
-  url = 'http://35.240.180.95:38302/api/document/upload';
+  dataText = '';
+  url = 'http://35.240.156.34:38302/api/document/upload';
+  urlOcr = 'http://35.240.156.34:38302/api/document/test/';
   ngOnInit() {
   }
   change(files) {
@@ -46,6 +49,8 @@ export class DialogOcrComponent implements OnInit {
   }
   processOcr() {
     this.statusOcr = true;
+    // tslint:disable-next-line:max-line-length
+    this.api.getOCR(this.imagePath[0]).subscribe(res => { console.log(res); this.dataText = res.data2; console.log(this.dataText); }, error => { });
   }
 
 }
