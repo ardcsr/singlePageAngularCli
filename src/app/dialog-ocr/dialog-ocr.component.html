@@ -13,7 +13,8 @@
     </div>
     <div>
       <div align="center">
-        <img src="http://35.240.156.34:38302/api/document/get/{{imagePath[0]}}" style="max-height: 400px;">
+        <img (click)="selectthis('0')" src="http://35.240.156.34:38302/api/document/get/{{imagePath[0]}}" style="max-height: 400px;" [class.activeImage]="selectImage=='0'">
+        <img (click)="selectthis('1')" src="http://35.240.156.34:38302/api/document/get/{{imagePath[1]}}" style="max-height: 400px;" [class.activeImage]="selectImage=='1'">
       </div>
 
     </div>
@@ -21,7 +22,7 @@
   <div *ngIf="statusOcr==true">
     <div class="row" align="center">
       <div class="col-md-6 margintop1">
-          <img src="http://35.240.156.34:38302/api/document/get/{{imagePath[0]}}" style="max-width: 550px; max-height: 550px;">
+          <img src="http://35.240.156.34:38302/api/document/get/{{imagePath[selectImage]}}" style="max-width: 550px; max-height: 550px;">
       </div>
       <div class="col-md-6">
 
@@ -45,6 +46,7 @@
   <div class="modal-footer">
 
     <button type="button" class="btn btn-primary" (click)=processOcr()>ดำเนินการต่อ</button>
+    <button type="button" class="btn btn-primary" (click)=cutText()>ตัดคำ</button>
   </div>
 
 
