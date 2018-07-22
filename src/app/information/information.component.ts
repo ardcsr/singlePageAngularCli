@@ -43,6 +43,59 @@ export class InformationComponent implements OnInit {
   }
   dialogTakephoto2() {
     const dialogRefLoading = this.dialog.open(DialogOcrComponent, { disableClose: false });
+    dialogRefLoading.afterClosed().subscribe((result) => {
+      console.log(result)
+      for (let index = 0; index < result.length; index++) {
+        switch (result[index].title) {
+          case 'compostion':
+          this.validationForm.patchValue({ compostion: result[index].text })
+            break;
+          case 'productDescription':
+          this.validationForm.patchValue({ productDescription: result[index].text })
+            break;
+          case 'pharmacology':
+          this.validationForm.patchValue({ pharmacology: result[index].text })
+            break;
+          case 'indications':
+          this.validationForm.patchValue({ indications: result[index].text })
+            break;
+          case 'dosage':
+          this.validationForm.patchValue({ dosage: result[index].text })
+            break;
+          case 'contraindications':
+          this.validationForm.patchValue({ contraindications: result[index].text })
+            break;
+          case 'warnings':
+          this.validationForm.patchValue({ warnings: result[index].text })
+            break;
+          case 'pregnacy':
+          this.validationForm.patchValue({ pregnacy: result[index].text })
+            break;
+          case 'sideEffects':
+          this.validationForm.patchValue({ sideEffects: result[index].text })
+            break;
+          case 'overdosage':
+          this.validationForm.patchValue({ overdosage: result[index].text })
+            break;
+          case 'storage':
+          this.validationForm.patchValue({ storage: result[index].text })
+            break;
+          case 'packaging':
+          this.validationForm.patchValue({ packaging: result[index].text })
+            break;
+          case 'note':
+          this.validationForm.patchValue({ note: result[index].text })
+            break;
+          case 'actions':
+          this.validationForm.patchValue({ actions: result[index].text })
+            break;
+          case 'name':
+          this.validationForm.patchValue({ _name: result[index].text })
+            break;
+        }
+      }
+      
+    })
   }
 
   buildForm() {

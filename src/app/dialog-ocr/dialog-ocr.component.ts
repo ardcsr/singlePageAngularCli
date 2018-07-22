@@ -51,8 +51,8 @@ export class DialogOcrComponent implements OnInit {
       );
     }
   }
-  selectthis(number){
-    this.selectImage=number;
+  selectthis(number) {
+    this.selectImage = number;
     console.log(number)
   }
   processOcr() {
@@ -75,38 +75,58 @@ export class DialogOcrComponent implements OnInit {
   }
   cutText() {
     for (let index = 0; index < this.arrayfillterObject.length; index++) {
-      const element = this.dataText.indexOf(this.arrayfillterObject[index].title);
+      const element = this.dataText.indexOf(this.arrayfillterObject[index].title.toUpperCase());
       console.log(this.arrayfillterObject[index].title);
       console.log(element)
-      this.arrayfillterObject[index].position = element;
-
-
-
+      if (element == -1) {
+        const element2 = this.dataText.indexOf(this.arrayfillterObject[index].title.charAt(0).toUpperCase() + this.arrayfillterObject[index].title.slice(1));
+        if (element2 == -1) {
+          const element3 = this.dataText.indexOf(this.arrayfillterObject[index].title);
+          this.arrayfillterObject[index].position = element3;
+          this.arrayfillterObject[index].detect = this.arrayfillterObject[index].title;
+        } else {
+          this.arrayfillterObject[index].position = element2;
+          this.arrayfillterObject[index].detect = this.arrayfillterObject[index].title.charAt(0).toUpperCase() + this.arrayfillterObject[index].title.slice(1);
+        }
+      } else {
+        this.arrayfillterObject[index].position = element;
+        this.arrayfillterObject[index].detect = this.arrayfillterObject[index].title.toUpperCase();
+      }
     }
     this.arrayfillterObject.sort(this.compare);
     console.log(this.arrayfillterObject);
+    for (let index = this.arrayfillterObject.length - 1; index > -1; index--) {
+      console.log(this.arrayfillterObject[index])
+      if (this.arrayfillterObject[index].position == -1) {
+        this.arrayfillterObject.splice(index, 1);
+      }
+
+
+    }
+    console.log(this.arrayfillterObject);
     for (let index = 0; index < this.arrayfillterObject.length; index++) {
       if (index == 0) {
-        console.log(this.arrayfillterObject[index].title)
-        const element = this.dataText.split(this.arrayfillterObject[index].title);
+        console.log(this.arrayfillterObject[index].detect)
+        const element = this.dataText.split(this.arrayfillterObject[index].detect);
         this.arrayfillterObject[index].newtext = element[1];
         let name = {
-          _name: element[0]
+          text: element[0],
+          title: 'name'
         }
         this.getTexxt.push(name)
       } else {
         console.log(this.arrayfillterObject[index - 1].newtext)
-        const element = this.arrayfillterObject[index - 1].newtext.split(this.arrayfillterObject[index].title);
+        const element = this.arrayfillterObject[index - 1].newtext.split(this.arrayfillterObject[index].detect);
         this.arrayfillterObject[index].newtext = element[1];
         let modeltext = {
           text: element[0],
-          title: this.arrayfillterObject[index - 1].title
+          title: this.arrayfillterObject[index - 1].main
         }
         this.getTexxt.push(modeltext)
         if (index == this.arrayfillterObject.length - 1) {
           let modeltext = {
             text: element[1],
-            title: this.arrayfillterObject[index].title
+            title: this.arrayfillterObject[index].main
           }
           this.getTexxt.push(modeltext)
         }
@@ -114,36 +134,104 @@ export class DialogOcrComponent implements OnInit {
 
     }
     console.log(this.getTexxt)
+    this.dialogRef.close(this.getTexxt)
   }
   getTexxt: any = [];
   arrayfillterObject: any = [
     {
-      title: 'DOSAGE',
-      position: '2'
-    }, {
-      title: 'STORAGE',
-      position: '3'
-    }, {
-      title: 'PHARMACOLOGICAL PROPERTIES',
-      position: '4'
-    }, {
-      title: 'COMPOSITION',
-      position: '5'
-    }, {
-      title: 'INDICATIONS',
-      position: '1'
-    }, {
-      title: 'Note',
-      position: '9'
-    }, {
-      title: 'WARNINGS',
-      position: '6'
-    }, {
-      title: 'ADVERSE-EFFECTS',
-      position: '7'
-    }, {
-      title: 'PACKING',
-      position: '8'
-    }
+      title: 'composition',
+      position: '',
+      main: 'compostion'
+    },
+    {
+      title: 'product description',
+      position: '',
+      main: 'productDescription'
+    },
+    {
+      title: 'pharmacological properties',
+      position: '',
+      main: 'pharmacology'
+    },
+    {
+      title: 'pharmacokinetics',
+      position: '',
+      main: 'pharmacology'
+    },
+    {
+      title: 'pharmacodgnamics',
+      position: '',
+      main: 'pharmacology'
+    },
+    {
+      title: 'indications',
+      position: '',
+      main: 'indications'
+    },
+    {
+      title: 'dosage',
+      position: '',
+      main: 'dosage'
+    },
+    {
+      title: 'contraindications',
+      position: '',
+      main: 'contraindications'
+    },
+    {
+      title: 'warnings',
+      position: '',
+      main: 'warnings'
+    },
+    {
+      title: 'pregnacy and lactation',
+      position: '',
+      main: 'pregnacy'
+    },
+    {
+      title: 'side Effects',
+      position: '',
+      main: 'sideEffects'
+    },
+    {
+      title: 'adverse-effects',
+      position: '',
+      main: 'sideEffects'
+    },
+    {
+      title: 'overdosage',
+      position: '',
+      main: 'overdosage'
+    },
+    {
+      title: 'storage',
+      position: '',
+      main: 'storage'
+    },
+    {
+      title: 'packaging',
+      position: '',
+      main: 'packaging'
+    },
+    {
+      title: 'packing',
+      position: '',
+      main: 'packaging'
+    },
+    {
+      title: 'note',
+      position: '',
+      main: 'note'
+    },
+    {
+      title: 'mode of action',
+      position: '',
+      main: 'actions'
+    },
+    {
+      title: 'medranism of action',
+      position: '',
+      main: 'actions'
+    },
   ]
 }
