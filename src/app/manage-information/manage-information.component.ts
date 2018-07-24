@@ -21,7 +21,7 @@ export class ManageInformationComponent implements OnInit {
         this.drugShowInfo = res.data;
         console.log(this.drugShowInfo);
         for (let i = 0; i <= this.drugShowInfo.length - 1; i++) {
-          this.drugShowInfo[i].keywords.properties = this.drugShowInfo[i].keywords.properties.substring(0, 100) + '...';
+          this.drugShowInfo[i].indications = this.drugShowInfo[i].indications.substring(0, 100) + '...';
         }
 
       },
