@@ -10,6 +10,7 @@ import { DialogDeleteComponent } from '../dialog-delete/dialog-delete.component'
   templateUrl: './manage-information.component.html',
   styleUrls: ['./manage-information.component.scss']
 })
+
 export class ManageInformationComponent implements OnInit {
 
   constructor(private dialog: MatDialog, private api: PageService, private router: Router) { }
