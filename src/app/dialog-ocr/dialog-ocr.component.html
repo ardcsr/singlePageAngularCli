@@ -31,7 +31,7 @@
           <label for="exampleFormControlSelect2">กรุณาตรวจสอบและแก้ไขข้อมูลให้ถูกต้องตรงกับเอกสารกำกับยา</label>
           <!-- <select  class="form-control" style="width: 90%; height: 400px;" id="exampleFormControlSelect2"> -->
 
-          <textarea multiple class="form-control" style="width: 90%; height: 550px;" id="exampleFormControlSelect2" rows="3">{{dataText}}</textarea>
+          <textarea multiple class="form-control" style="width: 90%; height: 550px;" id="exampleFormControlSelect2" rows="3" [(ngModel)]='dataText'></textarea>
           <!-- </select> -->
           . </div>
       </div>
@@ -47,6 +47,7 @@
 
     <button type="button" class="btn btn-primary" (click)=processOcr()>ดำเนินการต่อ</button>
     <button type="button" class="btn btn-primary" (click)=cutText()>ตัดคำ</button>
+    <button type="button" class="btn btn-primary" (click)=showText()>showText</button>
   </div>
 
 

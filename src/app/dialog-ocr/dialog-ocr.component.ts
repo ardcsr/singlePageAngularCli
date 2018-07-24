@@ -136,6 +136,11 @@ export class DialogOcrComponent implements OnInit {
     console.log(this.getTexxt)
     this.dialogRef.close(this.getTexxt)
   }
+  
+  showText(){
+  console.log('[][][][]')
+    console.log(this.dataText)
+  }
   getTexxt: any = [];
   arrayfillterObject: any = [
     {
