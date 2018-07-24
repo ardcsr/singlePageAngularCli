@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { DialogDeleteComponent } from '../dialog-delete/dialog-delete.component';
 
-
 @Component({
   selector: 'app-manage-information',
   templateUrl: './manage-information.component.html',
