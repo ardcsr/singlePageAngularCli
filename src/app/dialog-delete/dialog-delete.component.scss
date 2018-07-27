@@ -1,5 +1,5 @@
 .buttons {
-    background-color: rgb(14, 36, 156); /* Green */
+    background-color: rgb(98, 203, 211); /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -15,10 +15,10 @@
 }
 
 .buttons:hover {
-    background-color: #3e8e41;
+    background-color: rgb(5, 159, 170);
 }
 .buttons1 {
-    background-color: rgb(194, 14, 14); /* Green */
+    background-color: rgb(231, 135, 188); /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -34,7 +34,7 @@
 }
 
 .buttons1:hover {
-    background-color: rgb(21, 52, 151);
+    background-color: rgb(221, 98, 166);
 }
 .hand{
     cursor:pointer
@@ -53,4 +53,11 @@
 }
 .margintop10{
     margin-top: 10%
+}
+.font-passion{
+    font-family: 'Passion One', cursive;
+  
+    text-align: center;
+    font-size: 20px;
+
 }

@@ -31,6 +31,7 @@ import { ServiceService } from './service/service.service';
 import { DialogMachineComponent } from './dialog-machine/dialog-machine.component';
 import { DialogOcrComponent } from './dialog-ocr/dialog-ocr.component';
 import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
+import { DialogTopicComponent } from './dialog-topic/dialog-topic.component';
 
 const appRoutes: Routes = [];
 
@@ -49,7 +50,8 @@ const appRoutes: Routes = [];
     DashboardComponent,
     DialogMachineComponent,
     DialogOcrComponent,
-    DialogDeleteComponent
+    DialogDeleteComponent,
+    DialogTopicComponent
   ],
   imports: [
     BrowserModule,

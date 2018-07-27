@@ -9,7 +9,7 @@ import { UserComponent } from './user/user.component';
 import { LoginComponent } from './shared/login/login.component';
 import { DashboardComponent } from './shared/dashboard/dashboard.component';
 import { DialogMachineComponent } from './dialog-machine/dialog-machine.component';
-import { DialogOcrComponent } from './dialog-ocr/dialog-ocr.component'
+import { DialogOcrComponent } from './dialog-ocr/dialog-ocr.component';
 import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
 
 const appRoutes: Routes = [
