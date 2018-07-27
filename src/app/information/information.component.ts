@@ -46,7 +46,7 @@ export class InformationComponent implements OnInit {
     dialogRefLoading.afterClosed().subscribe((result) => {
       console.log(result)
       for (let index = 0; index < result.length; index++) {
-        switch (result[index].title) {
+        switch (result[index].title.toLowerCase()) {
           case 'compostion':
           this.validationForm.patchValue({ compostion: result[index].text })
             break;

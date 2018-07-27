@@ -115,6 +115,7 @@ export class DialogOcrComponent implements OnInit {
         }
         this.getTexxt.push(name)
       } else {
+        console.log(this.arrayfillterObject[index].detect)
         console.log(this.arrayfillterObject[index - 1].newtext)
         const element = this.arrayfillterObject[index - 1].newtext.split(this.arrayfillterObject[index].detect);
         this.arrayfillterObject[index].newtext = element[1];
