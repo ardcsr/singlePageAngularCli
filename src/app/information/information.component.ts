@@ -8,6 +8,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 // tslint:disable-next-line:import-blacklist
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
+import { DialogTopicComponent } from '../dialog-topic/dialog-topic.component';
 @Component({
   selector: 'app-information',
   templateUrl: './information.component.html',
@@ -36,6 +37,10 @@ export class InformationComponent implements OnInit {
       }
     });
 
+  }
+
+  dialogTopic(){
+    const dialogRefLoading = this.dialog.open(DialogTopicComponent, { disableClose: false });
   }
 
   dialogTakephoto() {

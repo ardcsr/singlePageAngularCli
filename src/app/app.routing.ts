@@ -11,6 +11,7 @@ import { DashboardComponent } from './shared/dashboard/dashboard.component';
 import { DialogMachineComponent } from './dialog-machine/dialog-machine.component';
 import { DialogOcrComponent } from './dialog-ocr/dialog-ocr.component';
 import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
+import { DialogTopicComponent } from './dialog-topic/dialog-topic.component';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent },
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
     { path: 'machine', component: DialogMachineComponent },
     { path: 'ocr', component: DialogOcrComponent },
     { path: 'ocrss', component: DialogDeleteComponent },
+    { path: 'ocrsss', component: DialogTopicComponent },
     // { path: '***', component: DashboardComponent }
 ];
 

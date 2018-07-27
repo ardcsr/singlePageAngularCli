@@ -75,6 +75,7 @@ const appRoutes: Routes = [];
   ],
   providers: [PageService],
   bootstrap: [AppComponent],
-  exports: [MatButtonModule]
+  exports: [MatButtonModule],
+  // entryComponents: [DialogTopicComponent]
 })
 export class AppModule { }
