@@ -134,6 +134,11 @@ export class DialogOcrComponent implements OnInit {
       }
 
     }
+    let alltext = {
+      text:this.dataText ,
+      title:'textall' 
+    }
+    this.getTexxt.push(alltext)
     console.log(this.getTexxt)
     this.dialogRef.close(this.getTexxt)
   }

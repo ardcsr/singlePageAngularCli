@@ -25,6 +25,7 @@ export class InformationComponent implements OnInit {
   statusSus = false;
   imageInfo: any;
   imagePath: any;
+  textediter: any;
   url = 'http://dev.baeslab.com:38302/api/document/upload';
   ngOnInit() {
     this.buildForm();
@@ -39,7 +40,7 @@ export class InformationComponent implements OnInit {
 
   }
 
-  dialogTopic(){
+  dialogTopic() {
     const dialogRefLoading = this.dialog.open(DialogTopicComponent, { disableClose: false });
   }
 
@@ -53,53 +54,58 @@ export class InformationComponent implements OnInit {
       for (let index = 0; index < result.length; index++) {
         switch (result[index].title.toLowerCase()) {
           case 'compostion':
-          this.validationForm.patchValue({ compostion: result[index].text })
+            this.validationForm.patchValue({ compostion: result[index].text })
             break;
           case 'productDescription':
-          this.validationForm.patchValue({ productDescription: result[index].text })
+            this.validationForm.patchValue({ productDescription: result[index].text })
             break;
           case 'pharmacology':
-          this.validationForm.patchValue({ pharmacology: result[index].text })
+            this.validationForm.patchValue({ pharmacology: result[index].text })
             break;
           case 'indications':
-          this.validationForm.patchValue({ indications: result[index].text })
+            this.validationForm.patchValue({ indications: result[index].text })
             break;
           case 'dosage':
-          this.validationForm.patchValue({ dosage: result[index].text })
+            this.validationForm.patchValue({ dosage: result[index].text })
             break;
           case 'contraindications':
-          this.validationForm.patchValue({ contraindications: result[index].text })
+            this.validationForm.patchValue({ contraindications: result[index].text })
             break;
           case 'warnings':
-          this.validationForm.patchValue({ warnings: result[index].text })
+            this.validationForm.patchValue({ warnings: result[index].text })
             break;
           case 'pregnacy':
-          this.validationForm.patchValue({ pregnacy: result[index].text })
+            this.validationForm.patchValue({ pregnacy: result[index].text })
             break;
           case 'sideEffects':
-          this.validationForm.patchValue({ sideEffects: result[index].text })
+            this.validationForm.patchValue({ sideEffects: result[index].text })
             break;
           case 'overdosage':
-          this.validationForm.patchValue({ overdosage: result[index].text })
+            this.validationForm.patchValue({ overdosage: result[index].text })
             break;
           case 'storage':
-          this.validationForm.patchValue({ storage: result[index].text })
+            this.validationForm.patchValue({ storage: result[index].text })
             break;
           case 'packaging':
-          this.validationForm.patchValue({ packaging: result[index].text })
+            this.validationForm.patchValue({ packaging: result[index].text })
             break;
           case 'note':
-          this.validationForm.patchValue({ note: result[index].text })
+            this.validationForm.patchValue({ note: result[index].text })
             break;
           case 'actions':
-          this.validationForm.patchValue({ actions: result[index].text })
+            this.validationForm.patchValue({ actions: result[index].text })
             break;
           case 'name':
-          this.validationForm.patchValue({ _name: result[index].text })
+            this.validationForm.patchValue({ _name: result[index].text })
+            break;
+          case 'textall':
+            this.validationForm.patchValue({ alltext: result[index].text })
+            // this.textediter=result[index].text;
+            console.log(result[index].text)
             break;
         }
       }
-      
+
     })
   }
 
@@ -136,6 +142,7 @@ export class InformationComponent implements OnInit {
       packaging: this.formBuilder.control(null, [Validators.required]),
       note: this.formBuilder.control(null, [Validators.required]),
       actions: this.formBuilder.control(null, [Validators.required]),
+      alltext: this.formBuilder.control(null),
       // requiredPattern: this.formBuilder.control(null, [Validators.required, Validators.pattern(/^#(?:[0-9a-fA-F]{3}){1,2}$/)]),
     });
 
@@ -326,5 +333,33 @@ export class InformationComponent implements OnInit {
         }
       );
     }
+  }
+
+  transalateTH() {
+    let textAPI = {
+      text:[]
+    }
+    textAPI.text.push(this.validationForm.value.compostion,
+      this.validationForm.value.productDescription,
+      this.validationForm.value.pharmacology,
+      this.validationForm.value.indications,
+      this.validationForm.value.dosage,
+      this.validationForm.value.contraindications,
+      this.validationForm.value.warninge,
+      this.validationForm.value.interactions,
+      this.validationForm.value.pregnacy,
+      this.validationForm.value.sideEffects,
+      this.validationForm.value.overdosage,
+      this.validationForm.value.storage,
+      this.validationForm.value.revesedDate,
+      this.validationForm.value.packaging,
+      this.validationForm.value.note,
+      this.validationForm.value.actions)
+      console.log(textAPI);
+      this.api.transalate(textAPI).subscribe(res=>{
+        console.log(res);
+      },error=>{
+        console.log(error)
+      })
   }
 }

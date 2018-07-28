@@ -94,7 +94,7 @@
           <div align="center">
               <div class="font-Kanit3 marginbottom50" id=headname>ไม่สามารถแยกหัวข้อได้อัตโนมัติ</div>
            
-          <textarea multiple class="form-control marginbottom50" style="width: 90%; height: 700px;" id="exampleFormControlSelect2" rows="3" ></textarea>
+          <textarea multiple class="form-control marginbottom50" formControlName="alltext" style="width: 90%; height: 700px;" id="exampleFormControlSelect2" rows="3" ></textarea>
         </div>
       </div>
 
@@ -162,7 +162,7 @@
 
           </div>
           <div class="marginbottom10 margin-top10">
-              <button class="btn btn-outline-primary my-2 my-sm-0 font-Kanit">แปลภาษา</button>
+              <button class="btn btn-outline-primary my-2 my-sm-0 font-Kanit" (click)='transalateTH()'>แปลภาษา</button>
             <button class="btn btn-outline-success my-2 my-sm-0 font-Kanit">ยืนยัน</button>
             <button class="btn btn-outline-danger my-2 my-sm-0 font-Kanit" type="cancle">ยกเลิก</button>
           </div>

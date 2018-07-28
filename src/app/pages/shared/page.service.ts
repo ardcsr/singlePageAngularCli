@@ -27,6 +27,8 @@ export class PageService {
   }
   private getocr(url, params, options) {
     return this.http.get(this.cbaseocr(url, params), options).map(res => res.json());
+  } private postocr(url, params, options) {
+    return this.http.post(this.OCR + '/' + url, params, options).map(res => res.json());
   }
 
   private get(url, params, options) {
@@ -111,6 +113,9 @@ export class PageService {
   }
   getOCR(id) {
     return this.getocr('api/document/test', [id], []);
+  }
+  transalate(teatEN){
+    return this.postocr('api/document/transalate', teatEN, []);
   }
 
 }
