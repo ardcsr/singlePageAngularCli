@@ -17,6 +17,8 @@ export class DialogOcrComponent implements OnInit {
   statusOcr = false;
   dataText = '';
   selectImage = '0';
+  buttomNext=false;
+  buttomCut=false;
   url = 'http://35.240.156.34:38302/api/documentbyocr/upload';
   urlOcr = 'http://35.240.156.34:38302/api/document/test/';
   ngOnInit() {
@@ -41,6 +43,7 @@ export class DialogOcrComponent implements OnInit {
               this.imagePath.push(this.imageInfo.data2._id);
               console.log('[2]')
               console.log(this.imagePath);
+              this.buttomNext=true
               // this.imagePath.push(this.imageId)
             }
           });
@@ -58,7 +61,8 @@ export class DialogOcrComponent implements OnInit {
   processOcr() {
     this.statusOcr = true;
     // tslint:disable-next-line:max-line-length
-    this.api.getOCR(this.imagePath[this.selectImage]).subscribe(res => { console.log(res); this.dataText = res.data2; console.log(this.dataText); }, error => { });
+    this.buttomNext=false
+    this.api.getOCR(this.imagePath[this.selectImage]).subscribe(res => { console.log(res); this.dataText = res.data2; console.log(this.dataText);this.buttomCut=true; }, error => { });
   }
   compare(a, b) {
     // Use toUpperCase() to ignore character casing

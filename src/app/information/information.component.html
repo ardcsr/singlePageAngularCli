@@ -8,97 +8,94 @@
       <div align="center">
 
         <div class="cardnest button3 div1 margin-top50 marginbottom50">
-          <!-- <div class="font-Kanit2" id=headname>ข้อมมูลลักษณะเม็ดยา</div>
-          <div class="margin-top20 marginbottom10">
-            <button class="btn btn-outline-primary my-2 my-sm-0 font-Kanit" (click)="dialogTakephoto()">สร้างข้อมูลด้วยภาพเม็ดยา</button>
+          <div *ngIf='!readtext'>
+            <button class="btn btn-outline-primary my-2 my-sm-0 font-Kanit" (click)='toggletext()'>toggle text ocr</button>
           </div>
-          <div class="margin-top20 marginbottom10">
-            <img src="../../assets/pill-04.png" width="30%" height="30%">
+          <div *ngIf='!ocrText'>
+            <div class="font-Kanit2" id=headname>ข้อมมูลลักษณะเม็ดยา</div>
+            <div class="margin-top20 marginbottom10">
+              <button *ngIf='!readtext' class="btn btn-outline-primary my-2 my-sm-0 font-Kanit" (click)="dialogTakephoto()">สร้างข้อมูลด้วยภาพเม็ดยา</button>
+            </div>
+            <div class="margin-top20 marginbottom10">
+              <img src="../../assets/pill-04.png" width="30%" height="30%">
 
-          </div>
-          <div class="example-container margin-right5 margin-left5">
-            <div class="font-Kanit2" id=headname>ลักษณะเม็ดยา</div>
-            <div class="row margin">
-              <div class="col-md-6 margin-top20">
-                <mat-form-field>
-                  <mat-select formControlName="shape" placeholder="รูปร่างเม็ดยา">
-                    <mat-option value="circle">วงกลม</mat-option>
-                    <mat-option value="elliptic">วงรี</mat-option>
-                    <mat-option value="capsule">แคปซูล</mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </div>
-              <div class="col-md-6 margin-top20"></div>
             </div>
-            <div class="row margin">
-              <div class="col-md-6">
-                <mat-form-field>
-                  <input formControlName="area" matInput placeholder="ขนาด">
-                </mat-form-field>
-                <mat-form-field>
-                  <input formControlName="colorName" matInput placeholder="สี">
-                </mat-form-field>
+            <div class="example-container margin-right5 margin-left5">
+              <div class="font-Kanit2" id=headname>ลักษณะเม็ดยา</div>
+              <div class="row margin">
+                <div class="col-md-6 margin-top20">
+                  <mat-form-field>
+                    <mat-select formControlName="shape" placeholder="รูปร่างเม็ดยา">
+                      <mat-option value="circle">วงกลม</mat-option>
+                      <mat-option value="elliptic">วงรี</mat-option>
+                      <mat-option value="capsule">แคปซูล</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6 margin-top20"></div>
               </div>
-              <div class="col-md-6">
-                <mat-form-field>
-                  <input formControlName="radius" matInput placeholder="รัศมี">
-                </mat-form-field>
-                <mat-form-field>
-                  <input formControlName="circularity" matInput placeholder="ค่าความกลม">
-                </mat-form-field>
+              <div class="row margin">
+                <div class="col-md-6">
+                  <mat-form-field>
+                    <input formControlName="area" matInput placeholder="ขนาด">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input formControlName="colorName" matInput placeholder="สี">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field>
+                    <input formControlName="radius" matInput placeholder="รัศมี">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input formControlName="circularity" matInput placeholder="ค่าความกลม">
+                  </mat-form-field>
+                </div>
               </div>
-            </div>
-            <div class="font-Kanit2" id=headname>RGB Color</div>
-            <div class="row margin">
-              <div class="col-md-6 margin-top20">
-                <mat-form-field>
-                  <input formControlName="R" matInput placeholder="Red">
-                </mat-form-field>
-                <mat-form-field>
-                  <input formControlName="G" matInput placeholder="Green">
-                </mat-form-field>
+              <div class="font-Kanit2" id=headname>RGB Color</div>
+              <div class="row margin">
+                <div class="col-md-6 margin-top20">
+                  <mat-form-field>
+                    <input formControlName="R" matInput placeholder="Red">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input formControlName="G" matInput placeholder="Green">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6 margin-top20">
+                  <mat-form-field>
+                    <input formControlName="B" matInput placeholder="Blue">
+                  </mat-form-field>
+                </div>
               </div>
-              <div class="col-md-6 margin-top20">
-                <mat-form-field>
-                  <input formControlName="B" matInput placeholder="Blue">
-                </mat-form-field>
-              </div>
-            </div>
-            <div class="font-Kanit2" id=headname>HSV</div>
-            <div class="row margin">
-              <div class="col-md-6 margin-top20">
-                <mat-form-field>
-                  <input formControlName="H" matInput placeholder="Hue">
-                </mat-form-field>
-                <mat-form-field>
-                  <input formControlName="S" matInput placeholder="Saturation">
-                </mat-form-field>
-              </div>
-              <div class="col-md-6 margin-top20">
-                <mat-form-field>
-                  <input formControlName="V" matInput placeholder="value">
-                </mat-form-field>
+              <div class="font-Kanit2" id=headname>HSV</div>
+              <div class="row margin">
+                <div class="col-md-6 margin-top20">
+                  <mat-form-field>
+                    <input formControlName="H" matInput placeholder="Hue">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input formControlName="S" matInput placeholder="Saturation">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6 margin-top20">
+                  <mat-form-field>
+                    <input formControlName="V" matInput placeholder="value">
+                  </mat-form-field>
+                </div>
               </div>
             </div>
           </div>
-          <div class="marginbottom10 margin-top10">
-            <button class="btn btn-outline-success my-2 my-sm-0 font-Kanit" (click)="onSubmit()" type="submit">ยืนยัน</button>
-            <button class="btn btn-outline-danger my-2 my-sm-0 font-Kanit" type="cancle">ยกเลิก</button>
+          <div align="center" *ngIf='ocrText'>
+            <div class="font-Kanit3 marginbottom50" id=headname>ไม่สามารถแยกหัวข้อได้อัตโนมัติ</div>
+
+            <textarea multiple class="form-control marginbottom50" formControlName="alltext" style="width: 90%; height: 700px;" id="exampleFormControlSelect2"
+              rows="3"></textarea>
           </div>
-          <div class="alert alert-danger" role="alert">
-            <p>กรุณากรอกข้อมูลให้ครบก่อนกด "ยืนยัน".</p>
-          </div>
-          <div class="alert alert-success" role="alert">
-            <p>คุณได้ทำการยืนยันสำเร็จแล้ว :)</p>
-          </div> -->
-          <div align="center">
-              <div class="font-Kanit3 marginbottom50" id=headname>ไม่สามารถแยกหัวข้อได้อัตโนมัติ</div>
-           
-          <textarea multiple class="form-control marginbottom50" formControlName="alltext" style="width: 90%; height: 700px;" id="exampleFormControlSelect2" rows="3" ></textarea>
+          
         </div>
-      </div>
 
-      
+
       </div>
     </div>
     <div class="col-md-6">
@@ -107,64 +104,64 @@
           <div class="font-Kanit2" id=headname>ข้อมูลรายละเอียดยา</div>
 
           <div class="margin-top20 marginbottom10">
-            <button class="btn btn-outline-primary my-2 my-sm-0 font-Kanit" (click)="dialogTakephoto2()">สร้างข้อมูลด้วยเอกสารกำกับยา</button>
+            <button *ngIf='!readtext' class="btn btn-outline-primary my-2 my-sm-0 font-Kanit" (click)="dialogTakephoto2()">สร้างข้อมูลด้วยเอกสารกำกับยา</button>
           </div>
           <div class="example-container margin-right10 margin-left10">
             <mat-form-field>
-              <input matInput formControlName="_name" placeholder="ชื่อ">
+              <input [readonly]='readtext' matInput formControlName="_name" placeholder="ชื่อ">
             </mat-form-field>
             <mat-form-field>
-              <textarea formControlName="compostion" matInput placeholder="ส่วนประกอบ"></textarea>
+              <textarea [readonly]='readtext' formControlName="compostion" matInput placeholder="ส่วนประกอบ"></textarea>
             </mat-form-field>
             <mat-form-field>
-              <textarea formControlName="productDescription" matInput placeholder="ลักษณะของผลิตภัณฑ์"></textarea>
+              <textarea [readonly]='readtext' formControlName="productDescription" matInput placeholder="ลักษณะของผลิตภัณฑ์"></textarea>
             </mat-form-field>
             <mat-form-field>
-              <textarea formControlName="pharmacology" matInput placeholder="เภสัชพลศาสตร์และเภสัชจลศาสตร์"></textarea>
+              <textarea [readonly]='readtext' formControlName="pharmacology" matInput placeholder="เภสัชพลศาสตร์และเภสัชจลศาสตร์"></textarea>
             </mat-form-field>
             <mat-form-field>
-              <textarea formControlName="indications" matInput placeholder="ข้อบ่งใช้"></textarea>
+              <textarea [readonly]='readtext' formControlName="indications" matInput placeholder="ข้อบ่งใช้"></textarea>
             </mat-form-field>
             <mat-form-field>
-              <textarea formControlName="dosage" matInput placeholder="วิธีรับประทาน"></textarea>
+              <textarea [readonly]='readtext' formControlName="dosage" matInput placeholder="วิธีรับประทาน"></textarea>
             </mat-form-field>
             <mat-form-field>
-              <textarea formControlName="contraindications" matInput placeholder="ข้อห้ามใช้"></textarea>
+              <textarea [readonly]='readtext' formControlName="contraindications" matInput placeholder="ข้อห้ามใช้"></textarea>
             </mat-form-field>
             <mat-form-field>
-              <textarea formControlName="warninge" matInput placeholder="คำเตือนและข้อควรระวัง"></textarea>
+              <textarea [readonly]='readtext' formControlName="warninge" matInput placeholder="คำเตือนและข้อควรระวัง"></textarea>
             </mat-form-field>
             <mat-form-field>
-              <textarea formControlName="pregnacy" matInput placeholder="การใช้ยาในสตรีมีครรภ์และให้นมบุตร"></textarea>
+              <textarea [readonly]='readtext' formControlName="pregnacy" matInput placeholder="การใช้ยาในสตรีมีครรภ์และให้นมบุตร"></textarea>
             </mat-form-field>
             <mat-form-field>
-              <textarea formControlName="sideEffects" matInput placeholder="อาการไม่พึงประสงค์"></textarea>
+              <textarea [readonly]='readtext' formControlName="sideEffects" matInput placeholder="อาการไม่พึงประสงค์"></textarea>
             </mat-form-field>
             <mat-form-field>
-              <textarea formControlName="overdosage" matInput placeholder="การใช้ยาเกินขนาดและการรักษา"></textarea>
+              <textarea [readonly]='readtext' formControlName="overdosage" matInput placeholder="การใช้ยาเกินขนาดและการรักษา"></textarea>
             </mat-form-field>
             <mat-form-field>
-              <textarea formControlName="storage" matInput placeholder="การเก็บระษา"></textarea>
+              <textarea [readonly]='readtext' formControlName="storage" matInput placeholder="การเก็บระษา"></textarea>
             </mat-form-field>
             <mat-form-field>
-              <textarea formControlName="packaging" matInput placeholder="ขนาดบรรจุ"></textarea>
+              <textarea [readonly]='readtext' formControlName="packaging" matInput placeholder="ขนาดบรรจุ"></textarea>
             </mat-form-field>
             <mat-form-field>
-              <textarea formControlName="note" matInput placeholder="หมายเหตุ"></textarea>
+              <textarea [readonly]='readtext' formControlName="note" matInput placeholder="หมายเหตุ"></textarea>
             </mat-form-field>
             <mat-form-field>
-              <textarea formControlName="actions" matInput placeholder="การออกฤทธิ์"></textarea>
+              <textarea [readonly]='readtext' formControlName="actions" matInput placeholder="การออกฤทธิ์"></textarea>
             </mat-form-field>
-            <button type="button" (click)='dialogTopic()' class="btn btn-default marginbottom10">+ เพิ่มหัวข้อ</button>
+            <button *ngIf='!readtext' type="button" (click)='dialogTopic()' class="btn btn-default marginbottom10">+ เพิ่มหัวข้อ</button>
 
 
 
 
           </div>
-          <div class="marginbottom10 margin-top10">
-              <button class="btn btn-outline-primary my-2 my-sm-0 font-Kanit" (click)='transalateTH()'>แปลภาษา</button>
+          <div class="marginbottom10 margin-top10" *ngIf='!readtext'>
+            <button class="btn btn-outline-primary my-2 my-sm-0 font-Kanit" (click)='transalateTH()'>แปลภาษา</button>
             <button class="btn btn-outline-success my-2 my-sm-0 font-Kanit" (click)="onSubmit()">ยืนยัน</button>
-            <button class="btn btn-outline-danger my-2 my-sm-0 font-Kanit" type="cancle">ยกเลิก</button>
+            <button class="btn btn-outline-danger my-2 my-sm-0 font-Kanit" routerLink='/manageDrug' type="cancle">ยกเลิก</button>
           </div>
 
           <div class="alert alert-danger" role="alert">

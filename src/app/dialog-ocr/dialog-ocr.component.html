@@ -45,8 +45,8 @@
 
   <div class="modal-footer">
 
-    <button type="button" class="btn btn-primary" (click)=processOcr()>ดำเนินการต่อ</button>
-    <button type="button" class="btn btn-primary" (click)=cutText()>ดำเนินการต่อ</button>
+    <button *ngIf="buttomNext" type="button" class="btn btn-primary" (click)=processOcr()>ดำเนินการต่อ</button>
+    <button *ngIf="buttomCut" type="button" class="btn btn-primary" (click)=cutText()>ดำเนินการต่อ</button>
     
   </div>
 

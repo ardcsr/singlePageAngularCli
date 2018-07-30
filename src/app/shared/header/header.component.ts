@@ -17,9 +17,14 @@ export class HeaderComponent implements OnInit {
     this.userInfo = this.api.getUserInfo();
     this.userId = localStorage.getItem('token');
     console.log(this.userId);
+    setInterval(() => {
+      this.userInfo = this.api.getUserInfo();
+      this.userId = localStorage.getItem('token');
+    }, 500)
   }
   signOut() {
     localStorage.removeItem('token');
+    localStorage.removeItem('userInfo');
     this.userId = null;
     this.router.navigate(['']);
     // this.homer.logoutforHeader();

@@ -31,7 +31,10 @@ export class LoginComponent implements OnInit {
           const userInfo = JSON.parse(decodeURIComponent(atob(res.data.split('.')[1])));
           localStorage.setItem('userInfo', JSON.stringify(userInfo));
           console.log(userInfo);
-          this.router.navigate(['']);
+          setTimeout(() => {
+            this.router.navigate(['']);
+          }, 500);
+          
         } else {
           this.errorStatus = true;
         }

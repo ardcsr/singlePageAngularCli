@@ -21,11 +21,21 @@ export class HomeComponent implements OnInit {
     if (localStorage.getItem('token') != null) {
       this.statusLogin = false;
     }
-    this.cutText()
+    // this.cutText()
     // this.api.listDrug(this.a).subscribe(res => {
     //   this.drugs = res.data;
     //   console.log(res);
     // });
+    
+    setInterval(() => {
+      if (localStorage.getItem('token')) {
+        this.statusLogin = false;
+        console.log(this.statusLogin)
+      }else{
+        this.statusLogin = true;
+        console.log(this.statusLogin)
+      }
+    }, 500)
   }
   onStatusEdit() {
     switch (this.editInput) {

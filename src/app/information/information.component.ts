@@ -26,16 +26,25 @@ export class InformationComponent implements OnInit {
   imageInfo: any;
   imagePath: any;
   textediter: any;
+  readtext=true;
+  ocrText=false;
   url = 'http://dev.baeslab.com:38302/api/document/upload';
   ngOnInit() {
     this.buildForm();
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       this.userId = params['drugId'];
       console.log(this.userId);
-      if (this.userId) {
-        this.titleText = 'แก้ไข';
+      if (this.api.getUserInfo()) {
+        this.readtext=false
+        if (this.userId) {
+          this.titleText = 'แก้ไข';
+          this.showInfo(this.userId);
+        }
+      } else {
+        this.titleText = '';
         this.showInfo(this.userId);
       }
+
     });
 
   }
@@ -43,7 +52,14 @@ export class InformationComponent implements OnInit {
   dialogTopic() {
     const dialogRefLoading = this.dialog.open(DialogTopicComponent, { disableClose: false });
   }
-
+  toggletext(){
+    if(this.ocrText){
+      this.ocrText=false
+    }else{
+      this.ocrText=true
+    }
+    
+  }
   dialogTakephoto() {
     const dialogRefLoading = this.dialog.open(DialogMachineComponent, { disableClose: false });
   }
@@ -51,6 +67,10 @@ export class InformationComponent implements OnInit {
     const dialogRefLoading = this.dialog.open(DialogOcrComponent, { disableClose: false });
     dialogRefLoading.afterClosed().subscribe((result) => {
       console.log(result)
+      if(result){
+        this.ocrText=true
+      }
+      
       for (let index = 0; index < result.length; index++) {
         switch (result[index].title.toLowerCase()) {
           case 'compostion':
@@ -337,7 +357,7 @@ export class InformationComponent implements OnInit {
 
   transalateTH() {
     let textAPI = {
-      text:[]
+      text: []
     }
     textAPI.text.push(
       this.validationForm.value.compostion,
@@ -356,29 +376,29 @@ export class InformationComponent implements OnInit {
       this.validationForm.value.packaging,
       this.validationForm.value.note,
       this.validationForm.value.actions)
-      console.log(textAPI);
-      this.api.transalate(textAPI).subscribe(res=>{
-        console.log(res);
-        this.validationForm.patchValue({
-          compostion: res.data[0],
-          productDescription: res.data[1],
-          pharmacology: res.data[2],
-          indications: res.data[3],
-          dosage: res.data[4],
-          contraindications: res.data[5],
-          warninge: res.data[6],
-          interactions: res.data[7],
-          pregnacy: res.data[8],
-          sideEffects: res.data[90],
-          overdosage: res.data[10],
-          storage: res.data[11],
-          revesedDate: res.data[12],
-          packaging: res.data[13],
-          note: res.data[14],
-          actions: res.data[15],
-        });
-      },error=>{
-        console.log(error)
-      })
+    console.log(textAPI);
+    this.api.transalate(textAPI).subscribe(res => {
+      console.log(res);
+      this.validationForm.patchValue({
+        compostion: res.data[0],
+        productDescription: res.data[1],
+        pharmacology: res.data[2],
+        indications: res.data[3],
+        dosage: res.data[4],
+        contraindications: res.data[5],
+        warninge: res.data[6],
+        interactions: res.data[7],
+        pregnacy: res.data[8],
+        sideEffects: res.data[90],
+        overdosage: res.data[10],
+        storage: res.data[11],
+        revesedDate: res.data[12],
+        packaging: res.data[13],
+        note: res.data[14],
+        actions: res.data[15],
+      });
+    }, error => {
+      console.log(error)
+    })
   }
 }
