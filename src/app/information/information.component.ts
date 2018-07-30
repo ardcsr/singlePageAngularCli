@@ -72,7 +72,7 @@ export class InformationComponent implements OnInit {
             this.validationForm.patchValue({ contraindications: result[index].text })
             break;
           case 'warnings':
-            this.validationForm.patchValue({ warnings: result[index].text })
+            this.validationForm.patchValue({ warninge: result[index].text })
             break;
           case 'pregnacy':
             this.validationForm.patchValue({ pregnacy: result[index].text })
@@ -263,7 +263,7 @@ export class InformationComponent implements OnInit {
 
     };
     console.log(this.drugModel);
-    if (this.userId === true) {
+    if (this.userId) {
       const User = { _id: this.userId };
       this.drugModel = Object.assign(User, this.drugModel);
       console.log(this.drugModel);
@@ -339,7 +339,8 @@ export class InformationComponent implements OnInit {
     let textAPI = {
       text:[]
     }
-    textAPI.text.push(this.validationForm.value.compostion,
+    textAPI.text.push(
+      this.validationForm.value.compostion,
       this.validationForm.value.productDescription,
       this.validationForm.value.pharmacology,
       this.validationForm.value.indications,
@@ -358,6 +359,24 @@ export class InformationComponent implements OnInit {
       console.log(textAPI);
       this.api.transalate(textAPI).subscribe(res=>{
         console.log(res);
+        this.validationForm.patchValue({
+          compostion: res.data[0],
+          productDescription: res.data[1],
+          pharmacology: res.data[2],
+          indications: res.data[3],
+          dosage: res.data[4],
+          contraindications: res.data[5],
+          warninge: res.data[6],
+          interactions: res.data[7],
+          pregnacy: res.data[8],
+          sideEffects: res.data[90],
+          overdosage: res.data[10],
+          storage: res.data[11],
+          revesedDate: res.data[12],
+          packaging: res.data[13],
+          note: res.data[14],
+          actions: res.data[15],
+        });
       },error=>{
         console.log(error)
       })
