@@ -37,13 +37,18 @@ export class PageService {
   private post(url, params, options) {
     return this.http.post(this.BASE + '/' + url, params, options).map(res => res.json());
   }
-
+  private post2(url, params, options) {
+    return this.http.post(this.OCR + '/' + url, params, options).map(res => res.json());
+  }
   private getWithAuthen(url, params) {
 
     return this.get(url, params, { headers: { 'Authorization': this.getToken() } });
   }
   private postWithAuthen(url, params) {
     return this.post(url, params, { headers: { 'Authorization': this.getToken() } });
+  }
+  private postWithAuthen2(url, params) {
+    return this.post2(url, params, { headers: { 'Authorization': this.getToken() } });
   }
 
   // set token to localStorage
@@ -97,7 +102,7 @@ export class PageService {
   }
   // search drug for homepage
   searchDrug(drugform) {
-    return this.postWithAuthen('api/drug/search', drugform);
+    return this.postWithAuthen2('api/drug/search', drugform);
   }
   // login
   signIn(user) {
