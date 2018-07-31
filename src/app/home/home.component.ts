@@ -30,10 +30,10 @@ export class HomeComponent implements OnInit {
     setInterval(() => {
       if (localStorage.getItem('token')) {
         this.statusLogin = false;
-        console.log(this.statusLogin)
+        // console.log(this.statusLogin)
       }else{
         this.statusLogin = true;
-        console.log(this.statusLogin)
+        // console.log(this.statusLogin)
       }
     }, 500)
   }

@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.userInfo = this.api.getUserInfo();
     this.userId = localStorage.getItem('token');
-    console.log(this.userId);
+    // console.log(this.userId);
     setInterval(() => {
       this.userInfo = this.api.getUserInfo();
       this.userId = localStorage.getItem('token');

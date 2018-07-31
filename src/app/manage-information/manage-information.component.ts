@@ -19,9 +19,14 @@ export class ManageInformationComponent implements OnInit {
     this.api.listDrug(this.searcheQuery).subscribe(
       res => {
         this.drugShowInfo = res.data;
-        console.log(this.drugShowInfo);
+        console.log(res.data)
+        console.log(this.drugShowInfo.length);
         for (let i = 0; i <= this.drugShowInfo.length - 1; i++) {
-          this.drugShowInfo[i].indications = this.drugShowInfo[i].indications.substring(0, 100) + '...';
+          if (this.drugShowInfo[i].indications) {
+            this.drugShowInfo[i].indications = this.drugShowInfo[i].indications.substring(0, 100) + '...';
+          } else {
+            this.drugShowInfo[i].indications = '-'
+          }
         }
 
       },
@@ -43,7 +48,12 @@ export class ManageInformationComponent implements OnInit {
         console.log(res);
         this.drugShowInfo = res.data;
         for (let i = 0; i <= this.drugShowInfo.length - 1; i++) {
-          this.drugShowInfo[i].keywords.properties = this.drugShowInfo[i].keywords.properties.substring(0, 100) + '...';
+          if (this.drugShowInfo[i].indications != '') {
+            this.drugShowInfo[i].indications = this.drugShowInfo[i].indications.substring(0, 100) + '...';
+          } else {
+            this.drugShowInfo[i].indications = '-'
+          }
+
         }
       },
       error => {
