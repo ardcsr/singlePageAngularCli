@@ -57,11 +57,13 @@
           </div>
           <div class="col-md-4">
             <mat-form-field class="font-Kanit">
-              <mat-select (change)="filter()" [(ngModel)]="selectedShape" placeholder="รูปร่างเม็ดยา">
+              <mat-select (change)="filter()" [(ngModel)]="selectedShape" placeholder="ลักษณะของยา">
                 <mat-option value="selectAll">เลือกทั้งหมด</mat-option>
                 <mat-option value="circle">วงกลม</mat-option>
                 <mat-option value="elliptic">วงรี</mat-option>
                 <mat-option value="capsule">แคปซูล</mat-option>
+                <mat-option value="Injection">ยาฉีด</mat-option>
+                <mat-option value="Medicine">ยาทา</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
