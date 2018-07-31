@@ -17,8 +17,8 @@ export class DialogOcrComponent implements OnInit {
   statusOcr = false;
   dataText = '';
   selectImage = '0';
-  buttomNext=false;
-  buttomCut=false;
+  buttomNext = false;
+  buttomCut = false;
   url = 'http://35.240.156.34:38302/api/documentbyocr/upload';
   urlOcr = 'http://35.240.156.34:38302/api/document/test/';
   ngOnInit() {
@@ -43,7 +43,7 @@ export class DialogOcrComponent implements OnInit {
               this.imagePath.push(this.imageInfo.data2._id);
               console.log('[2]')
               console.log(this.imagePath);
-              this.buttomNext=true
+              this.buttomNext = true
               // this.imagePath.push(this.imageId)
             }
           });
@@ -61,8 +61,8 @@ export class DialogOcrComponent implements OnInit {
   processOcr() {
     this.statusOcr = true;
     // tslint:disable-next-line:max-line-length
-    this.buttomNext=false
-    this.api.getOCR(this.imagePath[this.selectImage]).subscribe(res => { console.log(res); this.dataText = res.data2; console.log(this.dataText);this.buttomCut=true; }, error => { });
+    this.buttomNext = false
+    this.api.getOCR(this.imagePath[this.selectImage]).subscribe(res => { console.log(res); this.dataText = res.data2; console.log(this.dataText); this.buttomCut = true; }, error => { });
   }
   compare(a, b) {
     // Use toUpperCase() to ignore character casing
@@ -78,77 +78,88 @@ export class DialogOcrComponent implements OnInit {
     return comparison;
   }
   cutText() {
-    for (let index = 0; index < this.arrayfillterObject.length; index++) {
-      const element = this.dataText.indexOf(this.arrayfillterObject[index].title.toUpperCase());
-      console.log(this.arrayfillterObject[index].title);
-      console.log(element)
-      if (element == -1) {
-        const element2 = this.dataText.indexOf(this.arrayfillterObject[index].title.charAt(0).toUpperCase() + this.arrayfillterObject[index].title.slice(1));
-        if (element2 == -1) {
-          const element3 = this.dataText.indexOf(this.arrayfillterObject[index].title);
-          this.arrayfillterObject[index].position = element3;
-          this.arrayfillterObject[index].detect = this.arrayfillterObject[index].title;
+    try {
+      for (let index = 0; index < this.arrayfillterObject.length; index++) {
+        const element = this.dataText.indexOf(this.arrayfillterObject[index].title.toUpperCase());
+        console.log(this.arrayfillterObject[index].title);
+        console.log(element)
+        if (element == -1) {
+          const element2 = this.dataText.indexOf(this.arrayfillterObject[index].title.charAt(0).toUpperCase() + this.arrayfillterObject[index].title.slice(1));
+          if (element2 == -1) {
+            const element3 = this.dataText.indexOf(this.arrayfillterObject[index].title);
+            this.arrayfillterObject[index].position = element3;
+            this.arrayfillterObject[index].detect = this.arrayfillterObject[index].title;
+          } else {
+            this.arrayfillterObject[index].position = element2;
+            this.arrayfillterObject[index].detect = this.arrayfillterObject[index].title.charAt(0).toUpperCase() + this.arrayfillterObject[index].title.slice(1);
+          }
         } else {
-          this.arrayfillterObject[index].position = element2;
-          this.arrayfillterObject[index].detect = this.arrayfillterObject[index].title.charAt(0).toUpperCase() + this.arrayfillterObject[index].title.slice(1);
+          this.arrayfillterObject[index].position = element;
+          this.arrayfillterObject[index].detect = this.arrayfillterObject[index].title.toUpperCase();
         }
-      } else {
-        this.arrayfillterObject[index].position = element;
-        this.arrayfillterObject[index].detect = this.arrayfillterObject[index].title.toUpperCase();
       }
-    }
-    this.arrayfillterObject.sort(this.compare);
-    console.log(this.arrayfillterObject);
-    for (let index = this.arrayfillterObject.length - 1; index > -1; index--) {
-      console.log(this.arrayfillterObject[index])
-      if (this.arrayfillterObject[index].position == -1) {
-        this.arrayfillterObject.splice(index, 1);
-      }
+      this.arrayfillterObject.sort(this.compare);
+      console.log(this.arrayfillterObject);
+      for (let index = this.arrayfillterObject.length - 1; index > -1; index--) {
+        console.log(this.arrayfillterObject[index])
+        if (this.arrayfillterObject[index].position == -1) {
+          this.arrayfillterObject.splice(index, 1);
+        }
 
 
-    }
-    console.log(this.arrayfillterObject);
-    for (let index = 0; index < this.arrayfillterObject.length; index++) {
-      if (index == 0) {
-        console.log(this.arrayfillterObject[index].detect)
-        const element = this.dataText.split(this.arrayfillterObject[index].detect);
-        this.arrayfillterObject[index].newtext = element[1];
-        let name = {
-          text: element[0],
-          title: 'name'
-        }
-        this.getTexxt.push(name)
-      } else {
-        console.log(this.arrayfillterObject[index].detect)
-        console.log(this.arrayfillterObject[index - 1].newtext)
-        const element = this.arrayfillterObject[index - 1].newtext.split(this.arrayfillterObject[index].detect);
-        this.arrayfillterObject[index].newtext = element[1];
-        let modeltext = {
-          text: element[0],
-          title: this.arrayfillterObject[index - 1].main
-        }
-        this.getTexxt.push(modeltext)
-        if (index == this.arrayfillterObject.length - 1) {
+      }
+      console.log(this.arrayfillterObject);
+      for (let index = 0; index < this.arrayfillterObject.length; index++) {
+        if (index == 0) {
+          console.log(this.arrayfillterObject[index].detect)
+          const element = this.dataText.split(this.arrayfillterObject[index].detect);
+          this.arrayfillterObject[index].newtext = element[1];
+          let name = {
+            text: element[0],
+            title: 'name'
+          }
+          this.getTexxt.push(name)
+        } else {
+          console.log(this.arrayfillterObject[index].detect)
+          console.log(this.arrayfillterObject[index - 1].newtext)
+          const element = this.arrayfillterObject[index - 1].newtext.split(this.arrayfillterObject[index].detect);
+          this.arrayfillterObject[index].newtext = element[1];
           let modeltext = {
-            text: element[1],
-            title: this.arrayfillterObject[index].main
+            text: element[0],
+            title: this.arrayfillterObject[index - 1].main
           }
           this.getTexxt.push(modeltext)
+          if (index == this.arrayfillterObject.length - 1) {
+            let modeltext = {
+              text: element[1],
+              title: this.arrayfillterObject[index].main
+            }
+            this.getTexxt.push(modeltext)
+          }
         }
-      }
 
+      }
+      let alltext = {
+        text: this.dataText,
+        title: 'textall'
+      }
+      this.getTexxt.push(alltext)
+      console.log(this.getTexxt)
+      this.dialogRef.close(this.getTexxt)
+    } catch (error) {
+      let alltext = {
+        text: this.dataText,
+        title: 'textall'
+      }
+      this.getTexxt.push(alltext)
+      console.log(this.getTexxt)
+      this.dialogRef.close(this.getTexxt)
     }
-    let alltext = {
-      text:this.dataText ,
-      title:'textall' 
-    }
-    this.getTexxt.push(alltext)
-    console.log(this.getTexxt)
-    this.dialogRef.close(this.getTexxt)
+
   }
-  
-  showText(){
-  console.log('[][][][]')
+
+  showText() {
+    console.log('[][][][]')
     console.log(this.dataText)
   }
   getTexxt: any = [];
