@@ -164,10 +164,10 @@
             <button class="btn btn-outline-danger my-2 my-sm-0 font-Kanit" routerLink='/manageDrug' type="cancle">ยกเลิก</button>
           </div>
 
-          <div class="alert alert-danger" role="alert">
+          <div *ngIf="statusFail" class="alert alert-danger" role="alert">
             <p>กรุณากรอกข้อมูลให้ครบก่อนกด "ยืนยัน".</p>
           </div>
-          <div class="alert alert-success" role="alert">
+          <div *ngIf="statusSus" class="alert alert-success" role="alert">
             <p>คุณได้ทำการยืนยันสำเร็จแล้ว :)</p>
           </div>
         </div>
@@ -192,3 +192,6 @@
       </mat-select>
     </mat-form-field>
   </div> -->
+  <div *ngIf="loadingStatus" style="position: fixed;top: 0;bottom: 0; width: 100%;background: #00000042;z-index: 500;" class="card">
+    <mat-spinner style="margin-left: auto;margin-right: auto;top: 45%"></mat-spinner>
+  </div>

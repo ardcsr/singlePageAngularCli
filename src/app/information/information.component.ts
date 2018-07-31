@@ -26,8 +26,9 @@ export class InformationComponent implements OnInit {
   imageInfo: any;
   imagePath: any;
   textediter: any;
-  readtext=true;
-  ocrText=false;
+  readtext = true;
+  ocrText = false;
+  loadingStatus = false;
   url = 'http://dev.baeslab.com:38302/api/document/upload';
   ngOnInit() {
     this.buildForm();
@@ -35,7 +36,7 @@ export class InformationComponent implements OnInit {
       this.userId = params['drugId'];
       console.log(this.userId);
       if (this.api.getUserInfo()) {
-        this.readtext=false
+        this.readtext = false
         if (this.userId) {
           this.titleText = 'แก้ไข';
           this.showInfo(this.userId);
@@ -52,13 +53,13 @@ export class InformationComponent implements OnInit {
   dialogTopic() {
     const dialogRefLoading = this.dialog.open(DialogTopicComponent, { disableClose: false });
   }
-  toggletext(){
-    if(this.ocrText){
-      this.ocrText=false
-    }else{
-      this.ocrText=true
+  toggletext() {
+    if (this.ocrText) {
+      this.ocrText = false
+    } else {
+      this.ocrText = true
     }
-    
+
   }
   dialogTakephoto() {
     const dialogRefLoading = this.dialog.open(DialogMachineComponent, { disableClose: false });
@@ -67,10 +68,10 @@ export class InformationComponent implements OnInit {
     const dialogRefLoading = this.dialog.open(DialogOcrComponent, { disableClose: false });
     dialogRefLoading.afterClosed().subscribe((result) => {
       console.log(result)
-      if(result){
-        this.ocrText=true
+      if (result) {
+        this.ocrText = true
       }
-      
+
       for (let index = 0; index < result.length; index++) {
         switch (result[index].title.toLowerCase()) {
           case 'compostion':
@@ -218,7 +219,7 @@ export class InformationComponent implements OnInit {
   }
 
   onSubmit() {
-
+    this.loadingStatus = true;
     let splitedColorName;
     if (typeof this.validationForm.value.colorName === 'string') {
       splitedColorName = this.validationForm.value.colorName.split('-');
@@ -292,10 +293,12 @@ export class InformationComponent implements OnInit {
           console.log(res);
           if (res.statusCode === 200) {
             this.statusFail = false;
+            this.loadingStatus = false;
             this.statusSus = true;
           } else {
             this.statusFail = true;
             this.statusSus = false;
+            this.loadingStatus = false;
           }
 
         },
@@ -303,6 +306,7 @@ export class InformationComponent implements OnInit {
           console.log(error);
           this.statusFail = true;
           this.statusSus = false;
+          this.loadingStatus = false;
         }
       );
       // update
@@ -313,13 +317,16 @@ export class InformationComponent implements OnInit {
           if (res.statusCode === 200) {
             this.statusFail = false;
             this.statusSus = true;
+            this.loadingStatus = false;
           } else {
             this.statusFail = true;
             this.statusSus = false;
+            this.loadingStatus = false;
           }
         },
         error => {
           console.log(error);
+          this.loadingStatus = false;
           this.statusFail = true;
           this.statusSus = false;
         }
@@ -356,6 +363,7 @@ export class InformationComponent implements OnInit {
   }
 
   transalateTH() {
+    this.loadingStatus = true;
     let textAPI = {
       text: []
     }
@@ -397,8 +405,10 @@ export class InformationComponent implements OnInit {
         note: res.data[14],
         actions: res.data[15],
       });
+      this.loadingStatus=false;
     }, error => {
       console.log(error)
+      this.loadingStatus=false;
     })
   }
 }

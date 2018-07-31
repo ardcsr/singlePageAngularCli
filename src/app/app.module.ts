@@ -4,7 +4,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { PageService } from './pages/shared/page.service';
-import { MatIconModule, MatDialogModule } from '@angular/material';
+import { MatIconModule, MatDialogModule, MatProgressSpinnerModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -71,7 +71,8 @@ const appRoutes: Routes = [];
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
   providers: [PageService],
   bootstrap: [AppComponent],
