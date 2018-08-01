@@ -104,6 +104,9 @@ export class PageService {
   searchDrug(drugform) {
     return this.postWithAuthen2('api/drug/search', drugform);
   }
+  searchDrugbob(drugform) {
+    return this.postWithAuthen2('api/drugByMachine/search', drugform);
+  }
   // login
   signIn(user) {
     return this.post('api/signin', user, []);

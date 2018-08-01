@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   a = '';
   drugs: any;
   drugList: any;
+  drugListMuti:any;
   statusSearch = false;
   selectedShape = 'selectAll';
   selectedColor = 'allColor';
@@ -26,12 +27,12 @@ export class HomeComponent implements OnInit {
     //   this.drugs = res.data;
     //   console.log(res);
     // });
-    
+
     setInterval(() => {
       if (localStorage.getItem('token')) {
         this.statusLogin = false;
         // console.log(this.statusLogin)
-      }else{
+      } else {
         this.statusLogin = true;
         // console.log(this.statusLogin)
       }
@@ -51,6 +52,7 @@ export class HomeComponent implements OnInit {
   logoutforHeader() {
     this.statusLogin = true;
   }
+
   searchDrug(text) {
     if (text) {
       this.statusSearch = true;
@@ -63,6 +65,69 @@ export class HomeComponent implements OnInit {
       this.drugList = [];
     }
     console.log(this.statusSearch);
+  }
+
+  searchDrugmuti(text) {
+    if (text) {
+      this.drugListMuti=[]
+      let textmuti = [];
+      this.statusSearch = true;
+      try {
+        textmuti = text.split(' ');
+      } catch (error) {
+        textmuti = [text];
+      }
+      // textmuti=text.split(' ');
+      for (let index = 0; index < textmuti.length; index++) {
+        
+        this.api.searchDrug({ query: textmuti[index] }).subscribe(res => {
+          this.drugs = res.data;
+          // console.log(this.drugs);
+          console.log(textmuti[index])
+          this.filtermuit();
+        }, error => { });
+
+      }
+      console.log(textmuti);
+      // this.statusSearch = true;
+      // this.api.searchDrug({ query: text }).subscribe(res => {
+      //   this.drugs = res.data;
+      //   console.log(this.drugs);
+      //   this.filter();
+      // }, error => { });
+    } else {
+      this.drugListMuti=[]
+    }
+    console.log(this.statusSearch);
+  }
+  searchDrugboble(text) {
+    if (text) {
+      this.statusSearch = true;
+      this.api.searchDrugbob({ query: text }).subscribe(res => {
+        this.drugs = res.data;
+        this.drugs.forEach((item: any) => {
+          item.currentImageIdx = 0;
+        });
+        console.log(this.drugs);
+        this.filter();
+      }, error => { });
+    } else {
+      this.drugList = [];
+    }
+    console.log(this.statusSearch);
+  }
+  nextImage(id) {
+    if (this.drugList[id].currentImageIdx < this.drugList[id].images.length - 1) {
+      this.drugList[id].currentImageIdx++
+      console.log(this.drugList[id].currentImageIdx)
+      console.log(this.drugList[id].images.length)
+      console.log(this.drugList[id].images)
+    }
+  }
+  prevImage(id) {
+    if (this.drugList[id].currentImageIdx > 0) {
+      this.drugList[id].currentImageIdx--
+    }
   }
   filter() {
     console.log(this.selectedColor + '..' + this.selectedShape);
@@ -80,6 +145,24 @@ export class HomeComponent implements OnInit {
     }
     console.log(this.drugList);
   }
+  filtermuit() {
+    // console.log(this.selectedColor + '..' + this.selectedShape);
+    this.drugList = JSON.parse(JSON.stringify(this.drugs));
+    // console.log(this.drugList)
+    if (this.selectedColor !== 'allColor') {
+      this.drugList = this.drugList.filter((ref) => {
+        return (ref.keywords.ColorName.indexOf(this.selectedColor) > -1);
+      });
+    }
+    if (this.selectedShape !== 'selectAll') {
+      this.drugList = this.drugList.filter((ref) => {
+        return (ref._dimensions.shape.indexOf(this.selectedShape) > -1);
+      });
+    }
+    this.drugListMuti.push(this.drugList)
+    console.log(this.drugList);
+  }
+  
   seeData(drugId) {
     this.router.navigate(['/drug'], { queryParams: { drugId } });
   }
@@ -111,7 +194,7 @@ export class HomeComponent implements OnInit {
 //           this.getTexxt.push(element[1])
 //         }
 //       }
-      
+
 //     }
 //     console.log(this.getTexxt)
 //   }
