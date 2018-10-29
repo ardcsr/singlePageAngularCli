@@ -190,7 +190,7 @@ export class DialogOcrComponent implements OnInit {
       main: 'pharmacology'
     },
     {
-      title: 'indications',
+      title: 'indication',
       position: '',
       main: 'indications'
     },
@@ -200,12 +200,12 @@ export class DialogOcrComponent implements OnInit {
       main: 'dosage'
     },
     {
-      title: 'contraindications',
+      title: 'contraindication',
       position: '',
       main: 'contraindications'
     },
     {
-      title: 'warnings',
+      title: 'warning',
       position: '',
       main: 'warnings'
     },

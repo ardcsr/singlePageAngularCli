@@ -397,7 +397,7 @@ export class InformationComponent implements OnInit {
         warninge: res.data[6],
         interactions: res.data[7],
         pregnacy: res.data[8],
-        sideEffects: res.data[90],
+        sideEffects: res.data[9],
         overdosage: res.data[10],
         storage: res.data[11],
         revesedDate: res.data[12],

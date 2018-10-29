@@ -16,7 +16,7 @@
 
     <div align="center">
       <div class="cardnest1">
-        <input *ngIf="editInput==true" type="text" [(ngModel)]="query" id="fname" name="username" placeholder="Search.." (keyup)="searchDrugmuti(query)">
+        <input *ngIf="editInput==true" type="text" [(ngModel)]="query" id="fname" name="username" placeholder="Search.." (keyup)="searchDrug(query)">
       </div>
       <div *ngIf="statusSearch==false">
         <button class="button center-block" (click)=onStatusEdit()>SEARCH</button>
