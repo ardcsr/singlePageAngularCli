@@ -97,26 +97,77 @@
                 <div class="row">
                   <div class="col-md-4">
                     <div class="margin-top20 marginbottom10">
-                      <img src="../../assets/pill-04.png" width="75%" height="75%">
+                      <img *ngIf="i==0" src="../../assets/Acyclovir.png" width="75%" height="75%">
+                      <img *ngIf="i==1" src="../../assets/Amoxycillin 500.png" width="75%" height="75%">
+                      <img *ngIf="i==2" src="../../assets/Amoxycillin.png" width="75%" height="75%">
+                      <img *ngIf="i==3" src="../../assets/Augmentin.png" width="75%" height="75%">
+                      <img *ngIf="i==4" src="../../assets/AugmentinSR.png" width="75%" height="75%">
+                      <img *ngIf="i==5" src="../../assets/Acyclovir.png" width="75%" height="75%">
                       <!-- <img [src]="'http://35.240.156.34:38302/api/document/get/'+drug?.images[drug.currentImageIdx]._Id" width="100%" height="100%">
                       <button (click)="prevImage(i)">prev</button><button (click)="nextImage(i)">next</button> -->
                     </div>
                   </div>
-                  <div class="col-md-8" align="left">
+                  <div class="col-md-4" align="left">
                     <div class="row margin">
-                      <div class="col-md-3">รูปร่าง</div>
-                      <div class="col-md-8">{{drug?._dimensions.shape}}</div>
+                      <div class="col-md-6">รูปร่าง</div>
+                      <div class="col-md-6">{{drug?._dimensions.shape}}</div>
                     </div>
                     <div class="row margin">
-                      <div class="col-md-3 margintop10">สี</div>
-                      <div class="col-md-8 margintop10">{{drug?.keywords.ColorName}}</div>
+                      <div class="col-md-6 margintop10">area</div>
+                      <div class="col-md-6 margintop10">{{drug?._dimensions.area}}</div>
                     </div>
                     <div class="row margin">
-                      <div class="col-md-3 margintop10">สรรพคุณ</div>
-                      <div class="col-md-9 margintop10">{{drug?.indications}}.</div>
+                      <div class="col-md-6 margintop10">circularity</div>
+                      <div class="col-md-6 margintop10">{{drug?._dimensions.circularity}}.</div>
+                    </div>
+                    <div class="row margin">
+                      <div class="col-md-6 margintop10">radius</div>
+                      <div class="col-md-6 margintop10">{{drug?._dimensions.radius}}.</div>
                     </div>
                   </div>
-
+                  <div class="col-md-4" align="left">
+                    <div class="row margin">
+                      <div class="col-md-6">hue</div>
+                      <div class="col-md-6">{{drug?._HSVProfile.hue}}</div>
+                    </div>
+                    <div class="row margin">
+                      <div class="col-md-6 margintop10">saturation</div>
+                      <div class="col-md-6 margintop10">{{drug?._HSVProfile.saturation}}</div>
+                    </div>
+                    <div class="row margin">
+                      <div class="col-md-6 margintop10">value</div>
+                      <div class="col-md-6 margintop10">{{drug?._HSVProfile.value}}.</div>
+                    </div>
+                    <div class="row margin">
+                        <div class="col-md-6">R</div>
+                        <div class="col-md-6">{{drug?._HSVProfile.hue}}</div>
+                      </div>
+                      <div class="row margin">
+                        <div class="col-md-6 margintop10">G</div>
+                        <div class="col-md-6 margintop10">{{drug?._HSVProfile.saturation}}</div>
+                      </div>
+                      <div class="row margin">
+                        <div class="col-md-6 margintop10">B</div>
+                        <div class="col-md-6 margintop10">{{drug?._HSVProfile.value}}.</div>
+                      </div>
+                  </div>
+                  <!-- <div class="col-md-4" align="right">
+                    RGB
+                  </div>
+                  <div class="col-md-8" align="left">
+                      <div class="row margin">
+                          <div class="col-md-6">R</div>
+                          <div class="col-md-6">{{drug?._HSVProfile.hue}}</div>
+                        </div>
+                        <div class="row margin">
+                          <div class="col-md-6 margintop10">G</div>
+                          <div class="col-md-6 margintop10">{{drug?._HSVProfile.saturation}}</div>
+                        </div>
+                        <div class="row margin">
+                          <div class="col-md-6 margintop10">B</div>
+                          <div class="col-md-6 margintop10">{{drug?._HSVProfile.value}}.</div>
+                        </div>
+                  </div> -->
                 </div>
               </div>
             </div>
