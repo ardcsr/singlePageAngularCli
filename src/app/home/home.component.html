@@ -59,9 +59,9 @@
             <mat-form-field class="font-Kanit">
               <mat-select (change)="filter()" [(ngModel)]="selectedShape" placeholder="ลักษณะของยา">
                 <mat-option value="selectAll">เลือกทั้งหมด</mat-option>
-                <mat-option value="circle">วงกลม</mat-option>
-                <mat-option value="elliptic">วงรี</mat-option>
-                <mat-option value="capsule">แคปซูล</mat-option>
+                <mat-option value="Circle">วงกลม</mat-option>
+                <mat-option value="Ellipse">วงรี</mat-option>
+                <mat-option value="Capsule">แคปซูล</mat-option>
                 <mat-option value="Injection">ยาฉีด</mat-option>
                 <mat-option value="Medicine">ยาทา</mat-option>
                 <mat-option value="Other">อื่นๆ</mat-option>
@@ -86,8 +86,8 @@
     </div>
 
     <div class="row margin">
-      <div class="col-md-3"></div>
-      <div class="col-md-6">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
         <div align="center">
           <div *ngFor="let drug of drugList;let i = index;">
             <div class="card  marginbottom5">
@@ -109,46 +109,46 @@
                   </div>
                   <div class="col-md-4" align="left">
                     <div class="row margin">
-                      <div class="col-md-6">รูปร่าง</div>
+                      <div class="col-md-6"><b>รูปร่าง</b></div>
                       <div class="col-md-6">{{drug?._dimensions.shape}}</div>
                     </div>
                     <div class="row margin">
-                      <div class="col-md-6 margintop10">area</div>
-                      <div class="col-md-6 margintop10">{{drug?._dimensions.area}}</div>
+                      <div class="col-md-6 "><b>area</b></div>
+                      <div class="col-md-6 ">{{drug?._dimensions.area}}</div>
                     </div>
                     <div class="row margin">
-                      <div class="col-md-6 margintop10">circularity</div>
-                      <div class="col-md-6 margintop10">{{drug?._dimensions.circularity}}.</div>
+                      <div class="col-md-6 "><b>circularity</b></div>
+                      <div class="col-md-6 ">{{drug?._dimensions.circularity}}.</div>
                     </div>
                     <div class="row margin">
-                      <div class="col-md-6 margintop10">radius</div>
-                      <div class="col-md-6 margintop10">{{drug?._dimensions.radius}}.</div>
+                      <div class="col-md-6 "><b>radius</b></div>
+                      <div class="col-md-6 ">{{drug?._dimensions.radius}}.</div>
                     </div>
                   </div>
                   <div class="col-md-4" align="left">
                     <div class="row margin">
-                      <div class="col-md-6">hue</div>
+                      <div class="col-md-6"><b>hue</b></div>
                       <div class="col-md-6">{{drug?._HSVProfile.hue}}</div>
                     </div>
                     <div class="row margin">
-                      <div class="col-md-6 margintop10">saturation</div>
-                      <div class="col-md-6 margintop10">{{drug?._HSVProfile.saturation}}</div>
+                      <div class="col-md-6 "><b>saturation</b></div>
+                      <div class="col-md-6 ">{{drug?._HSVProfile.saturation}}</div>
                     </div>
                     <div class="row margin">
-                      <div class="col-md-6 margintop10">value</div>
-                      <div class="col-md-6 margintop10">{{drug?._HSVProfile.value}}.</div>
+                      <div class="col-md-6 "><b>value</b></div>
+                      <div class="col-md-6 ">{{drug?._HSVProfile.value}}.</div>
                     </div>
                     <div class="row margin">
-                        <div class="col-md-6">R</div>
+                        <div class="col-md-6"><b>R</b></div>
                         <div class="col-md-6">{{drug?._HSVProfile.hue}}</div>
                       </div>
                       <div class="row margin">
-                        <div class="col-md-6 margintop10">G</div>
-                        <div class="col-md-6 margintop10">{{drug?._HSVProfile.saturation}}</div>
+                        <div class="col-md-6 "><b>G</b></div>
+                        <div class="col-md-6 ">{{drug?._HSVProfile.saturation}}</div>
                       </div>
                       <div class="row margin">
-                        <div class="col-md-6 margintop10">B</div>
-                        <div class="col-md-6 margintop10">{{drug?._HSVProfile.value}}.</div>
+                        <div class="col-md-6 "><b>B</b></div>
+                        <div class="col-md-6 ">{{drug?._HSVProfile.value}}.</div>
                       </div>
                   </div>
                   <!-- <div class="col-md-4" align="right">
@@ -174,7 +174,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3"></div>
+      <div class="col-md-2"></div>
     </div>
   </div>
 

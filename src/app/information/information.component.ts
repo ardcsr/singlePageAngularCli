@@ -29,7 +29,7 @@ export class InformationComponent implements OnInit {
   readtext = true;
   ocrText = false;
   loadingStatus = false;
-  url = 'http://dev.baeslab.com:38302/api/document/upload';
+  url = `${this.api.BASE}/api/document/upload`;
   ngOnInit() {
     this.buildForm();
     this.activatedRoute.queryParams.subscribe((params: Params) => {

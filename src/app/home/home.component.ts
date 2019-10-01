@@ -140,6 +140,7 @@ export class HomeComponent implements OnInit {
     }
     if (this.selectedShape !== 'selectAll') {
       this.drugList = this.drugList.filter((ref) => {
+        // console.log()
         return (ref._dimensions.shape.indexOf(this.selectedShape) > -1);
       });
     }

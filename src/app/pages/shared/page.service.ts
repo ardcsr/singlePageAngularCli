@@ -3,8 +3,8 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 @Injectable()
 export class PageService {
-  BASE = 'http://dev.baeslab.com:38302';
-  OCR = 'http://dev.baeslab.com:38302';  
+  BASE = 'https://drug-api.thailand-smartliving.com';
+  OCR = 'https://drug-api.thailand-smartliving.com';  
   // OCR = 'http://localhost:38302';  
   //  BASE = 'http://localhost:38302';
   constructor(public http: Http) { }
